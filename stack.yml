@@ -1,0 +1,101 @@
+ 
+# run with docker-compose --file stack.yml up
+# This compose file references a .env file in the same directory, which is ignored by git.
+# The .env file feature only works when you use docker-compose up and does not work
+# with docker stack deploy  (to deploy to production use secrets)
+#
+ 
+version: '3.7'
+ 
+networks:
+ MERNPRPcreatedbycompose:    #instead of using the standard bridge network created by docker daemon, use my own
+   name: MERN-PRP-website
+   driver: bridge
+ 
+ 
+volumes:
+ mongo: ~
+ 
+ 
+services:
+ 
+# Dockerport is 27017 -- and that's exposed to localhost
+ mongo-db:
+   image: mongo:latest
+  
+   networks:
+     MERNPRPcreatedbycompose:
+       aliases:
+         - database     #the mongo service is reachable at the hostname mongo or database on the MERNPRPcreatedbycompose netowrk.
+ 
+ 
+   # Most MongoDB configuration can be set through flags to mongod
+   # command: --serviceExecutor adaptive
+  
+   # MONGO comes with its own volumes to which it will write the data
+   # volumes:
+   #   - type: bind
+   #     source: ../data  #local device folder  // ensure this folder exists prior to running!
+   #     target: /data
+   volumes:
+     - mongo:/var/lib/mongo
+ 
+   ports:
+     - 27017:27017
+ 
+   restart: unless-stopped
+  
+   environment:
+     MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+     MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+ 
+ 
+# PRISMA CLIENT
+ prisma:
+   image: prismagraphql/prisma:1.34
+  
+   restart: unless-stopped
+  
+   networks:
+     MERNPRPcreatedbycompose:
+       aliases:
+         - prisma
+ 
+   ports:
+     - '4466:4466'
+   environment:
+     PRISMA_CONFIG: |
+       # API secret is used by the Prisma CLI to generate authentication tokens and authenticate its requests against the Prisma server.
+       # PRISMA_MANAGEMENT_API_SECRET=my-secret to activate cluster security
+       # managementApiSecret: my-secret-secret
+       port: 4466
+       databases:
+         default:
+           connector: mongo
+            # required prefix mongodb://                    or specify host name   [port and db name optional ]
+            # mongodb://DBuserName:D1fficultP%40ssw0rd@mongodb0.example.com:27017/admin
+            # host name defined under networking in the mongo container definition above
+           uri: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@database
+ 
+ # DEVELOPMENT ONLY MONGO EXPRESS CLIENT
+ mongo-express:
+  
+   image: mongo-express
+ 
+   networks:
+     MERNPRPcreatedbycompose: {}
+ 
+   restart: unless-stopped
+ 
+   ports:
+     - 8081:8081
+ 
+   environment:
+     ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_INITDB_ROOT_USERNAME} 
+     ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+     ME_CONFIG_MONGODB_PORT: 27017
+     ME_CONFIG_MONGODB_SERVER: mongo-db
+ 
+ 
+ # react-front-end:
+ #   image: node

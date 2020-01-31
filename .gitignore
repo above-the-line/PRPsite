@@ -1,0 +1,5 @@
+.env
+package.json
+.editorconfig
+node_modules
+*.log
