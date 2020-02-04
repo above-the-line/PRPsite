@@ -23,3 +23,43 @@ type Post {
   published: Boolean!
   author: User
 }
+
+
+#
+#
+type Query{
+  projects: [Project]
+}
+
+type Mutation{
+  createProject(
+    project_name: String!,
+    project_year: Int!,
+    film_project: Boolean, 
+    avi_roles_on_project: Avi_RolesCreateInput!,  #using naming convention from generated Prisma Client 
+    ): Project
+}
+
+
+
+input Avi_RolesCreateInput {
+  avi_director: Boolean
+  avi_gaffer: Boolean
+  avi_cinematographer: Boolean
+}
+
+
+type Project {
+  id: ID!
+  project_name: String!
+  project_year: Int!
+  film_project: Boolean
+  avi_roles_on_project: Avi_Roles!   
+}
+
+
+type Avi_Roles {
+  avi_director: Boolean
+  avi_gaffer: Boolean
+  avi_cinematographer: Boolean
+}
