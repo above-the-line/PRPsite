@@ -7,24 +7,6 @@ const Mutation = require('../src/resolvers/Mutation')
 const resolvers = {
   Query,
   Mutation,
-  User: {
-    posts(root, args, context) {
-      return context.prisma
-        .user({
-          id: root.id,
-        })
-        .posts()
-    },
-  },
-  Post: {
-    author(root, args, context) {
-      return context.prisma
-        .post({
-          id: root.id,
-        })
-        .author()
-    },
-  },
 }
 
 const server = new GraphQLServer({

@@ -1,35 +1,38 @@
+#
+# USERS
+
 type Query {
-  publishedPosts: [Post!]!
-  post(postId: ID!): Post
-  postsByUser(userId: ID!): [Post!]!
+  users: [User]
 }
 
 type Mutation {
-  createUser(name: String!): User
-  createDraft(title: String!, userId: ID!): Post
-  publish(postId: ID!): Post
+  createUser(user_name: String!): User
 }
 
 type User {
   id: ID!
-  email: String
-  name: String!
-  posts: [Post!]!
+  user_name: String!
+  user_email: String
+  user_role: User_Role
 }
 
-type Post {
-  id: ID!
-  title: String!
-  published: Boolean!
-  author: User
+enum User_Role {
+  VISITOR
+  ADMIN
+  CUSTOMER
 }
 
 
+# #########
+#
+# PROJECTS
 #
 #
-type Query{
+
+type Query {
   projects: [Project]
 }
+
 
 type Mutation{
   createProject(
@@ -37,24 +40,21 @@ type Mutation{
     project_year: Int!,
     film_project: Boolean, 
     avi_roles_on_project: Avi_RolesCreateInput!,  #using naming convention from generated Prisma Client 
+    project_media: Media_ItemCreateInput,     #Prisma Client names this Media_ItemCreateManyInput, which then resolves to createInput --> I handle this the mutation
+    project_category: Project_CategoryCreateInput #Prisma Client naming
     ): Project
 }
 
 
-
-input Avi_RolesCreateInput {
-  avi_director: Boolean
-  avi_gaffer: Boolean
-  avi_cinematographer: Boolean
-}
-
-
+# PROJECT TYPES
 type Project {
   id: ID!
   project_name: String!
   project_year: Int!
   film_project: Boolean
-  avi_roles_on_project: Avi_Roles!   
+  avi_roles_on_project: Avi_Roles!
+  project_media: [Media_Item]
+  project_category: Project_Category   
 }
 
 
@@ -62,4 +62,48 @@ type Avi_Roles {
   avi_director: Boolean
   avi_gaffer: Boolean
   avi_cinematographer: Boolean
+  avi_writer: Boolean
+  avi_camera_operator: Boolean
+  avi_lighting_technician: Boolean
+  avi_front_end_dev: Boolean
+  avi_back_end_dev: Boolean
+  avi_full_stack_dev: Boolean
+}
+
+
+type Media_Item {
+  id: ID!
+  banner_image_url: String
+  video_url: String
+} 
+
+
+type Project_Category {
+  short_film: Boolean
+  feature_film: Boolean
+}
+
+
+# PROJECT INPUTS
+input Media_ItemCreateInput {
+  banner_image_url: String
+  video_url: String
+}
+
+input Project_CategoryCreateInput {
+  short_film: Boolean
+  feature_film: Boolean
+}
+
+
+input Avi_RolesCreateInput {
+  avi_director: Boolean
+  avi_gaffer: Boolean
+  avi_cinematographer: Boolean
+  avi_writer: Boolean
+  avi_camera_operator: Boolean
+  avi_lighting_technician: Boolean
+  avi_front_end_dev: Boolean
+  avi_back_end_dev: Boolean
+  avi_full_stack_dev: Boolean
 }

@@ -1,22 +1,6 @@
-function publishedPosts(root, args, context) {
-    return context.prisma.posts({ where: { published: true } })
+function users(root, args, context) {
+    return context.prisma.users()
 }
-
-function post(root, args, context) {
-    return context.prisma.post({ id: args.postId })
-}
-
-function postsByUser(root, args, context) {
-    return context.prisma
-      .user({
-        id: args.userId,
-      })
-      .posts()
-}
-
-
-// 
-
 
 function projects(root, args, context) {
     return context.prisma.projects()
@@ -24,8 +8,6 @@ function projects(root, args, context) {
 
 
 module.exports = {
-    publishedPosts,
-    post,
-    postsByUser,
+    users,
     projects
 }

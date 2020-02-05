@@ -1,21 +1,5 @@
-function createDraft(root, args, context) {
-    return context.prisma.createPost({
-        title: args.title,
-        author: {
-        connect: { id: args.userId },
-        },
-    })
-}
-
-function publish(root, args, context) {
-    return context.prisma.updatePost({
-        where: { id: args.postId },
-        data: { published: true },
-    })
-}
-  
 function createUser(root, args, context) {
-    return context.prisma.createUser({ name: args.name })
+    return context.prisma.createUser({ name: args.user_name })
 }
 
 // I name this function this way in order
@@ -39,15 +23,36 @@ function createProject(root, args, context) {
                     {
                     avi_director: args.avi_roles_on_project.avi_director,
                     avi_gaffer: args.avi_roles_on_project.avi_gaffer,
-                    avi_cinematographer: args.avi_roles_on_project.avi_gaffer
+                    avi_cinematographer: args.avi_roles_on_project.avi_gaffer,
+                    avi_writer: args.avi_roles_on_project.avi_writer,
+                    avi_camera_operator: args.avi_roles_on_project.avi_camera_operator,
+                    avi_lighting_technician: args.avi_roles_on_project.avi_lighting_technician,
+                    avi_front_end_dev: args.avi_roles_on_project.avi_front_end_dev,
+                    avi_back_end_dev: args.avi_roles_on_project.avi_back_end_dev,
+                    avi_full_stack_dev: args.avi_roles_on_project.avi_full_stack_dev
                 }
-            } 
+            },
+            // Prisma Client's createProject resolves this project_media with a Media_ItemCreateMANYInput
+            // which then resolves to Media_ItemCreateInput, hence the extra object encapsulation 
+            // through "create"
+            project_media: {
+                create: {
+                    banner_image_url: args.project_media.banner_image_url,
+                    video_url: args.project_media.video_url  
+                }
+            },
+            project_category: {
+                create:
+                {
+                    short_film: args.project_category.short_film,
+                    feature_film: args.project_category.feature_film
+                }
+            }
+
     })
 }
 
 module.exports = {
-    createDraft,
-    publish,
     createUser,
     createProject
 }
