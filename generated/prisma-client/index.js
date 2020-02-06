@@ -9,8 +9,24 @@ var models = [
     embedded: false
   },
   {
-    name: "Post",
+    name: "User_Role",
     embedded: false
+  },
+  {
+    name: "Project",
+    embedded: false
+  },
+  {
+    name: "Avi_Roles",
+    embedded: true
+  },
+  {
+    name: "Media_Item",
+    embedded: false
+  },
+  {
+    name: "Project_Category",
+    embedded: true
   }
 ];
 exports.Prisma = prisma_lib_1.makePrismaClientClass({

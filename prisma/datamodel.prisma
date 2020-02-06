@@ -1,13 +1,62 @@
 type User {
   id: ID! @id
-  email: String @unique
-  name: String!
-  posts: [Post!]!
+  user_name: String!
+  user_email: String @unique
+  user_password: String
+  user_role: User_Role
 }
 
-type Post {
-  id: ID! @id
-  title: String!
-  published: Boolean! @default(value: false)
-  author: User @relation(link: INLINE)
+enum User_Role {
+  VISITOR
+  ADMIN
+  CUSTOMER
 }
+
+
+# A reference between the Project collection and Media_Item 
+# collection is designated with the @relation (link:INLINE)
+# Project will be the foreign key holder, Media_Item 
+# will not store information about it's owner
+
+type Project {
+  id: ID! @id
+  project_name: String!
+  project_year: Int!
+  film_project: Boolean
+  tech_project: Boolean
+  avi_roles_on_project: Avi_Roles! 
+  project_media: [Media_Item] @relation (link: INLINE)  #1 to many
+  project_category: Project_Category
+}
+
+# There is a unidirectional relation from Project to Avi_Roles
+# (avi_roles_on_project field). 
+# Avi_Roles is an embedded type so there are no Avi_Roles documents
+# stored in their own Avi_Roles collection
+# instead each Avi_Role is stored inside a Project document
+# in the Project collection.
+
+type Avi_Roles @embedded {
+  avi_director: Boolean
+  avi_gaffer: Boolean
+  avi_cinematographer: Boolean
+  avi_writer: Boolean
+  avi_camera_operator: Boolean
+  avi_lighting_technician: Boolean
+  avi_front_end_dev: Boolean
+  avi_back_end_dev: Boolean
+  avi_full_stack_dev: Boolean
+}
+
+type Media_Item {
+  id: ID! @id
+  banner_image_url: String
+  video_url: String
+} 
+
+
+type Project_Category @embedded {
+  short_film: Boolean
+  feature_film: Boolean
+}
+

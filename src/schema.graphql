@@ -3,18 +3,36 @@
 
 type Query {
   users: [User]
+  signup(user_email: String!, user_password: String!, user_name: String!): AuthPayload
+  login(user_email: String!, user_password: String!): AuthPayload 
 }
 
 type Mutation {
   createUser(user_name: String!): User
 }
 
+
+type AuthPayload {
+  token: String
+  user: User
+}
+
+
 type User {
   id: ID!
   user_name: String!
-  user_email: String
+  user_email: String! 
+  user_password: String!
   user_role: User_Role
 }
+
+input UserCreateInput {
+  user_name: String!
+  user_email: String
+  user_password: String
+  user_role: User_Role
+}
+
 
 enum User_Role {
   VISITOR

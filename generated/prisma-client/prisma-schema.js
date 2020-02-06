@@ -3,12 +3,89 @@ module.exports = {
   // Please don't change this file manually but run `prisma generate` to update it.
   // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-/* GraphQL */ `type AggregatePost {
+/* GraphQL */ `type AggregateMedia_Item {
+  count: Int!
+}
+
+type AggregateProject {
   count: Int!
 }
 
 type AggregateUser {
   count: Int!
+}
+
+type Avi_Roles {
+  avi_director: Boolean
+  avi_gaffer: Boolean
+  avi_cinematographer: Boolean
+  avi_writer: Boolean
+  avi_camera_operator: Boolean
+  avi_lighting_technician: Boolean
+  avi_front_end_dev: Boolean
+  avi_back_end_dev: Boolean
+  avi_full_stack_dev: Boolean
+}
+
+input Avi_RolesCreateInput {
+  avi_director: Boolean
+  avi_gaffer: Boolean
+  avi_cinematographer: Boolean
+  avi_writer: Boolean
+  avi_camera_operator: Boolean
+  avi_lighting_technician: Boolean
+  avi_front_end_dev: Boolean
+  avi_back_end_dev: Boolean
+  avi_full_stack_dev: Boolean
+}
+
+input Avi_RolesCreateOneInput {
+  create: Avi_RolesCreateInput
+}
+
+input Avi_RolesUpdateDataInput {
+  avi_director: Boolean
+  avi_gaffer: Boolean
+  avi_cinematographer: Boolean
+  avi_writer: Boolean
+  avi_camera_operator: Boolean
+  avi_lighting_technician: Boolean
+  avi_front_end_dev: Boolean
+  avi_back_end_dev: Boolean
+  avi_full_stack_dev: Boolean
+}
+
+input Avi_RolesUpdateOneRequiredInput {
+  create: Avi_RolesCreateInput
+  update: Avi_RolesUpdateDataInput
+  upsert: Avi_RolesUpsertNestedInput
+}
+
+input Avi_RolesUpsertNestedInput {
+  update: Avi_RolesUpdateDataInput!
+  create: Avi_RolesCreateInput!
+}
+
+input Avi_RolesWhereInput {
+  avi_director: Boolean
+  avi_director_not: Boolean
+  avi_gaffer: Boolean
+  avi_gaffer_not: Boolean
+  avi_cinematographer: Boolean
+  avi_cinematographer_not: Boolean
+  avi_writer: Boolean
+  avi_writer_not: Boolean
+  avi_camera_operator: Boolean
+  avi_camera_operator_not: Boolean
+  avi_lighting_technician: Boolean
+  avi_lighting_technician_not: Boolean
+  avi_front_end_dev: Boolean
+  avi_front_end_dev_not: Boolean
+  avi_back_end_dev: Boolean
+  avi_back_end_dev_not: Boolean
+  avi_full_stack_dev: Boolean
+  avi_full_stack_dev_not: Boolean
+  AND: [Avi_RolesWhereInput!]
 }
 
 type BatchPayload {
@@ -17,13 +94,224 @@ type BatchPayload {
 
 scalar Long
 
+type Media_Item {
+  id: ID!
+  banner_image_url: String
+  video_url: String
+}
+
+type Media_ItemConnection {
+  pageInfo: PageInfo!
+  edges: [Media_ItemEdge]!
+  aggregate: AggregateMedia_Item!
+}
+
+input Media_ItemCreateInput {
+  id: ID
+  banner_image_url: String
+  video_url: String
+}
+
+input Media_ItemCreateManyInput {
+  create: [Media_ItemCreateInput!]
+  connect: [Media_ItemWhereUniqueInput!]
+}
+
+type Media_ItemEdge {
+  node: Media_Item!
+  cursor: String!
+}
+
+enum Media_ItemOrderByInput {
+  id_ASC
+  id_DESC
+  banner_image_url_ASC
+  banner_image_url_DESC
+  video_url_ASC
+  video_url_DESC
+}
+
+type Media_ItemPreviousValues {
+  id: ID!
+  banner_image_url: String
+  video_url: String
+}
+
+input Media_ItemScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  banner_image_url: String
+  banner_image_url_not: String
+  banner_image_url_in: [String!]
+  banner_image_url_not_in: [String!]
+  banner_image_url_lt: String
+  banner_image_url_lte: String
+  banner_image_url_gt: String
+  banner_image_url_gte: String
+  banner_image_url_contains: String
+  banner_image_url_not_contains: String
+  banner_image_url_starts_with: String
+  banner_image_url_not_starts_with: String
+  banner_image_url_ends_with: String
+  banner_image_url_not_ends_with: String
+  video_url: String
+  video_url_not: String
+  video_url_in: [String!]
+  video_url_not_in: [String!]
+  video_url_lt: String
+  video_url_lte: String
+  video_url_gt: String
+  video_url_gte: String
+  video_url_contains: String
+  video_url_not_contains: String
+  video_url_starts_with: String
+  video_url_not_starts_with: String
+  video_url_ends_with: String
+  video_url_not_ends_with: String
+  AND: [Media_ItemScalarWhereInput!]
+  OR: [Media_ItemScalarWhereInput!]
+  NOT: [Media_ItemScalarWhereInput!]
+}
+
+type Media_ItemSubscriptionPayload {
+  mutation: MutationType!
+  node: Media_Item
+  updatedFields: [String!]
+  previousValues: Media_ItemPreviousValues
+}
+
+input Media_ItemSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: Media_ItemWhereInput
+  AND: [Media_ItemSubscriptionWhereInput!]
+}
+
+input Media_ItemUpdateDataInput {
+  banner_image_url: String
+  video_url: String
+}
+
+input Media_ItemUpdateInput {
+  banner_image_url: String
+  video_url: String
+}
+
+input Media_ItemUpdateManyDataInput {
+  banner_image_url: String
+  video_url: String
+}
+
+input Media_ItemUpdateManyInput {
+  create: [Media_ItemCreateInput!]
+  update: [Media_ItemUpdateWithWhereUniqueNestedInput!]
+  upsert: [Media_ItemUpsertWithWhereUniqueNestedInput!]
+  delete: [Media_ItemWhereUniqueInput!]
+  connect: [Media_ItemWhereUniqueInput!]
+  set: [Media_ItemWhereUniqueInput!]
+  disconnect: [Media_ItemWhereUniqueInput!]
+  deleteMany: [Media_ItemScalarWhereInput!]
+  updateMany: [Media_ItemUpdateManyWithWhereNestedInput!]
+}
+
+input Media_ItemUpdateManyMutationInput {
+  banner_image_url: String
+  video_url: String
+}
+
+input Media_ItemUpdateManyWithWhereNestedInput {
+  where: Media_ItemScalarWhereInput!
+  data: Media_ItemUpdateManyDataInput!
+}
+
+input Media_ItemUpdateWithWhereUniqueNestedInput {
+  where: Media_ItemWhereUniqueInput!
+  data: Media_ItemUpdateDataInput!
+}
+
+input Media_ItemUpsertWithWhereUniqueNestedInput {
+  where: Media_ItemWhereUniqueInput!
+  update: Media_ItemUpdateDataInput!
+  create: Media_ItemCreateInput!
+}
+
+input Media_ItemWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  banner_image_url: String
+  banner_image_url_not: String
+  banner_image_url_in: [String!]
+  banner_image_url_not_in: [String!]
+  banner_image_url_lt: String
+  banner_image_url_lte: String
+  banner_image_url_gt: String
+  banner_image_url_gte: String
+  banner_image_url_contains: String
+  banner_image_url_not_contains: String
+  banner_image_url_starts_with: String
+  banner_image_url_not_starts_with: String
+  banner_image_url_ends_with: String
+  banner_image_url_not_ends_with: String
+  video_url: String
+  video_url_not: String
+  video_url_in: [String!]
+  video_url_not_in: [String!]
+  video_url_lt: String
+  video_url_lte: String
+  video_url_gt: String
+  video_url_gte: String
+  video_url_contains: String
+  video_url_not_contains: String
+  video_url_starts_with: String
+  video_url_not_starts_with: String
+  video_url_ends_with: String
+  video_url_not_ends_with: String
+  AND: [Media_ItemWhereInput!]
+}
+
+input Media_ItemWhereUniqueInput {
+  id: ID
+}
+
 type Mutation {
-  createPost(data: PostCreateInput!): Post!
-  updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
-  updateManyPosts(data: PostUpdateManyMutationInput!, where: PostWhereInput): BatchPayload!
-  upsertPost(where: PostWhereUniqueInput!, create: PostCreateInput!, update: PostUpdateInput!): Post!
-  deletePost(where: PostWhereUniqueInput!): Post
-  deleteManyPosts(where: PostWhereInput): BatchPayload!
+  createMedia_Item(data: Media_ItemCreateInput!): Media_Item!
+  updateMedia_Item(data: Media_ItemUpdateInput!, where: Media_ItemWhereUniqueInput!): Media_Item
+  updateManyMedia_Items(data: Media_ItemUpdateManyMutationInput!, where: Media_ItemWhereInput): BatchPayload!
+  upsertMedia_Item(where: Media_ItemWhereUniqueInput!, create: Media_ItemCreateInput!, update: Media_ItemUpdateInput!): Media_Item!
+  deleteMedia_Item(where: Media_ItemWhereUniqueInput!): Media_Item
+  deleteManyMedia_Items(where: Media_ItemWhereInput): BatchPayload!
+  createProject(data: ProjectCreateInput!): Project!
+  updateProject(data: ProjectUpdateInput!, where: ProjectWhereUniqueInput!): Project
+  updateManyProjects(data: ProjectUpdateManyMutationInput!, where: ProjectWhereInput): BatchPayload!
+  upsertProject(where: ProjectWhereUniqueInput!, create: ProjectCreateInput!, update: ProjectUpdateInput!): Project!
+  deleteProject(where: ProjectWhereUniqueInput!): Project
+  deleteManyProjects(where: ProjectWhereInput): BatchPayload!
   createUser(data: UserCreateInput!): User!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
@@ -49,159 +337,134 @@ type PageInfo {
   endCursor: String
 }
 
-type Post {
+type Project {
   id: ID!
-  title: String!
-  published: Boolean!
-  author: User
+  project_name: String!
+  project_year: Int!
+  film_project: Boolean
+  tech_project: Boolean
+  avi_roles_on_project: Avi_Roles!
+  project_media(where: Media_ItemWhereInput, orderBy: Media_ItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Media_Item!]
+  project_category: Project_Category
 }
 
-type PostConnection {
+type Project_Category {
+  short_film: Boolean
+  feature_film: Boolean
+}
+
+input Project_CategoryCreateInput {
+  short_film: Boolean
+  feature_film: Boolean
+}
+
+input Project_CategoryCreateOneInput {
+  create: Project_CategoryCreateInput
+}
+
+input Project_CategoryUpdateDataInput {
+  short_film: Boolean
+  feature_film: Boolean
+}
+
+input Project_CategoryUpdateOneInput {
+  create: Project_CategoryCreateInput
+  update: Project_CategoryUpdateDataInput
+  upsert: Project_CategoryUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+}
+
+input Project_CategoryUpsertNestedInput {
+  update: Project_CategoryUpdateDataInput!
+  create: Project_CategoryCreateInput!
+}
+
+input Project_CategoryWhereInput {
+  short_film: Boolean
+  short_film_not: Boolean
+  feature_film: Boolean
+  feature_film_not: Boolean
+  AND: [Project_CategoryWhereInput!]
+}
+
+type ProjectConnection {
   pageInfo: PageInfo!
-  edges: [PostEdge]!
-  aggregate: AggregatePost!
+  edges: [ProjectEdge]!
+  aggregate: AggregateProject!
 }
 
-input PostCreateInput {
+input ProjectCreateInput {
   id: ID
-  title: String!
-  published: Boolean
-  author: UserCreateOneWithoutPostsInput
+  project_name: String!
+  project_year: Int!
+  film_project: Boolean
+  tech_project: Boolean
+  avi_roles_on_project: Avi_RolesCreateOneInput!
+  project_media: Media_ItemCreateManyInput
+  project_category: Project_CategoryCreateOneInput
 }
 
-input PostCreateManyWithoutAuthorInput {
-  create: [PostCreateWithoutAuthorInput!]
-  connect: [PostWhereUniqueInput!]
-}
-
-input PostCreateWithoutAuthorInput {
-  id: ID
-  title: String!
-  published: Boolean
-}
-
-type PostEdge {
-  node: Post!
+type ProjectEdge {
+  node: Project!
   cursor: String!
 }
 
-enum PostOrderByInput {
+enum ProjectOrderByInput {
   id_ASC
   id_DESC
-  title_ASC
-  title_DESC
-  published_ASC
-  published_DESC
+  project_name_ASC
+  project_name_DESC
+  project_year_ASC
+  project_year_DESC
+  film_project_ASC
+  film_project_DESC
+  tech_project_ASC
+  tech_project_DESC
 }
 
-type PostPreviousValues {
+type ProjectPreviousValues {
   id: ID!
-  title: String!
-  published: Boolean!
+  project_name: String!
+  project_year: Int!
+  film_project: Boolean
+  tech_project: Boolean
 }
 
-input PostScalarWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  title: String
-  title_not: String
-  title_in: [String!]
-  title_not_in: [String!]
-  title_lt: String
-  title_lte: String
-  title_gt: String
-  title_gte: String
-  title_contains: String
-  title_not_contains: String
-  title_starts_with: String
-  title_not_starts_with: String
-  title_ends_with: String
-  title_not_ends_with: String
-  published: Boolean
-  published_not: Boolean
-  AND: [PostScalarWhereInput!]
-  OR: [PostScalarWhereInput!]
-  NOT: [PostScalarWhereInput!]
-}
-
-type PostSubscriptionPayload {
+type ProjectSubscriptionPayload {
   mutation: MutationType!
-  node: Post
+  node: Project
   updatedFields: [String!]
-  previousValues: PostPreviousValues
+  previousValues: ProjectPreviousValues
 }
 
-input PostSubscriptionWhereInput {
+input ProjectSubscriptionWhereInput {
   mutation_in: [MutationType!]
   updatedFields_contains: String
   updatedFields_contains_every: [String!]
   updatedFields_contains_some: [String!]
-  node: PostWhereInput
-  AND: [PostSubscriptionWhereInput!]
+  node: ProjectWhereInput
+  AND: [ProjectSubscriptionWhereInput!]
 }
 
-input PostUpdateInput {
-  title: String
-  published: Boolean
-  author: UserUpdateOneWithoutPostsInput
+input ProjectUpdateInput {
+  project_name: String
+  project_year: Int
+  film_project: Boolean
+  tech_project: Boolean
+  avi_roles_on_project: Avi_RolesUpdateOneRequiredInput
+  project_media: Media_ItemUpdateManyInput
+  project_category: Project_CategoryUpdateOneInput
 }
 
-input PostUpdateManyDataInput {
-  title: String
-  published: Boolean
+input ProjectUpdateManyMutationInput {
+  project_name: String
+  project_year: Int
+  film_project: Boolean
+  tech_project: Boolean
 }
 
-input PostUpdateManyMutationInput {
-  title: String
-  published: Boolean
-}
-
-input PostUpdateManyWithoutAuthorInput {
-  create: [PostCreateWithoutAuthorInput!]
-  delete: [PostWhereUniqueInput!]
-  connect: [PostWhereUniqueInput!]
-  set: [PostWhereUniqueInput!]
-  disconnect: [PostWhereUniqueInput!]
-  update: [PostUpdateWithWhereUniqueWithoutAuthorInput!]
-  upsert: [PostUpsertWithWhereUniqueWithoutAuthorInput!]
-  deleteMany: [PostScalarWhereInput!]
-  updateMany: [PostUpdateManyWithWhereNestedInput!]
-}
-
-input PostUpdateManyWithWhereNestedInput {
-  where: PostScalarWhereInput!
-  data: PostUpdateManyDataInput!
-}
-
-input PostUpdateWithoutAuthorDataInput {
-  title: String
-  published: Boolean
-}
-
-input PostUpdateWithWhereUniqueWithoutAuthorInput {
-  where: PostWhereUniqueInput!
-  data: PostUpdateWithoutAuthorDataInput!
-}
-
-input PostUpsertWithWhereUniqueWithoutAuthorInput {
-  where: PostWhereUniqueInput!
-  update: PostUpdateWithoutAuthorDataInput!
-  create: PostCreateWithoutAuthorInput!
-}
-
-input PostWhereInput {
+input ProjectWhereInput {
   id: ID
   id_not: ID
   id_in: [ID!]
@@ -216,34 +479,49 @@ input PostWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  title: String
-  title_not: String
-  title_in: [String!]
-  title_not_in: [String!]
-  title_lt: String
-  title_lte: String
-  title_gt: String
-  title_gte: String
-  title_contains: String
-  title_not_contains: String
-  title_starts_with: String
-  title_not_starts_with: String
-  title_ends_with: String
-  title_not_ends_with: String
-  published: Boolean
-  published_not: Boolean
-  author: UserWhereInput
-  AND: [PostWhereInput!]
+  project_name: String
+  project_name_not: String
+  project_name_in: [String!]
+  project_name_not_in: [String!]
+  project_name_lt: String
+  project_name_lte: String
+  project_name_gt: String
+  project_name_gte: String
+  project_name_contains: String
+  project_name_not_contains: String
+  project_name_starts_with: String
+  project_name_not_starts_with: String
+  project_name_ends_with: String
+  project_name_not_ends_with: String
+  project_year: Int
+  project_year_not: Int
+  project_year_in: [Int!]
+  project_year_not_in: [Int!]
+  project_year_lt: Int
+  project_year_lte: Int
+  project_year_gt: Int
+  project_year_gte: Int
+  film_project: Boolean
+  film_project_not: Boolean
+  tech_project: Boolean
+  tech_project_not: Boolean
+  avi_roles_on_project: Avi_RolesWhereInput
+  project_media_some: Media_ItemWhereInput
+  project_category: Project_CategoryWhereInput
+  AND: [ProjectWhereInput!]
 }
 
-input PostWhereUniqueInput {
+input ProjectWhereUniqueInput {
   id: ID
 }
 
 type Query {
-  post(where: PostWhereUniqueInput!): Post
-  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post]!
-  postsConnection(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
+  mediaItem(where: Media_ItemWhereUniqueInput!): Media_Item
+  mediaItems(where: Media_ItemWhereInput, orderBy: Media_ItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Media_Item]!
+  mediaItemsConnection(where: Media_ItemWhereInput, orderBy: Media_ItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): Media_ItemConnection!
+  project(where: ProjectWhereUniqueInput!): Project
+  projects(where: ProjectWhereInput, orderBy: ProjectOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Project]!
+  projectsConnection(where: ProjectWhereInput, orderBy: ProjectOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ProjectConnection!
   user(where: UserWhereUniqueInput!): User
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
@@ -251,15 +529,23 @@ type Query {
 }
 
 type Subscription {
-  post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
+  mediaItem(where: Media_ItemSubscriptionWhereInput): Media_ItemSubscriptionPayload
+  project(where: ProjectSubscriptionWhereInput): ProjectSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
 }
 
 type User {
   id: ID!
-  email: String
-  name: String!
-  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
+  user_name: String!
+  user_email: String
+  user_password: String
+  user_role: User_Role
+}
+
+enum User_Role {
+  VISITOR
+  ADMIN
+  CUSTOMER
 }
 
 type UserConnection {
@@ -270,20 +556,10 @@ type UserConnection {
 
 input UserCreateInput {
   id: ID
-  email: String
-  name: String!
-  posts: PostCreateManyWithoutAuthorInput
-}
-
-input UserCreateOneWithoutPostsInput {
-  create: UserCreateWithoutPostsInput
-  connect: UserWhereUniqueInput
-}
-
-input UserCreateWithoutPostsInput {
-  id: ID
-  email: String
-  name: String!
+  user_name: String!
+  user_email: String
+  user_password: String
+  user_role: User_Role
 }
 
 type UserEdge {
@@ -294,16 +570,22 @@ type UserEdge {
 enum UserOrderByInput {
   id_ASC
   id_DESC
-  email_ASC
-  email_DESC
-  name_ASC
-  name_DESC
+  user_name_ASC
+  user_name_DESC
+  user_email_ASC
+  user_email_DESC
+  user_password_ASC
+  user_password_DESC
+  user_role_ASC
+  user_role_DESC
 }
 
 type UserPreviousValues {
   id: ID!
-  email: String
-  name: String!
+  user_name: String!
+  user_email: String
+  user_password: String
+  user_role: User_Role
 }
 
 type UserSubscriptionPayload {
@@ -323,33 +605,17 @@ input UserSubscriptionWhereInput {
 }
 
 input UserUpdateInput {
-  email: String
-  name: String
-  posts: PostUpdateManyWithoutAuthorInput
+  user_name: String
+  user_email: String
+  user_password: String
+  user_role: User_Role
 }
 
 input UserUpdateManyMutationInput {
-  email: String
-  name: String
-}
-
-input UserUpdateOneWithoutPostsInput {
-  create: UserCreateWithoutPostsInput
-  update: UserUpdateWithoutPostsDataInput
-  upsert: UserUpsertWithoutPostsInput
-  delete: Boolean
-  disconnect: Boolean
-  connect: UserWhereUniqueInput
-}
-
-input UserUpdateWithoutPostsDataInput {
-  email: String
-  name: String
-}
-
-input UserUpsertWithoutPostsInput {
-  update: UserUpdateWithoutPostsDataInput!
-  create: UserCreateWithoutPostsInput!
+  user_name: String
+  user_email: String
+  user_password: String
+  user_role: User_Role
 }
 
 input UserWhereInput {
@@ -367,41 +633,58 @@ input UserWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  email: String
-  email_not: String
-  email_in: [String!]
-  email_not_in: [String!]
-  email_lt: String
-  email_lte: String
-  email_gt: String
-  email_gte: String
-  email_contains: String
-  email_not_contains: String
-  email_starts_with: String
-  email_not_starts_with: String
-  email_ends_with: String
-  email_not_ends_with: String
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  posts_some: PostWhereInput
+  user_name: String
+  user_name_not: String
+  user_name_in: [String!]
+  user_name_not_in: [String!]
+  user_name_lt: String
+  user_name_lte: String
+  user_name_gt: String
+  user_name_gte: String
+  user_name_contains: String
+  user_name_not_contains: String
+  user_name_starts_with: String
+  user_name_not_starts_with: String
+  user_name_ends_with: String
+  user_name_not_ends_with: String
+  user_email: String
+  user_email_not: String
+  user_email_in: [String!]
+  user_email_not_in: [String!]
+  user_email_lt: String
+  user_email_lte: String
+  user_email_gt: String
+  user_email_gte: String
+  user_email_contains: String
+  user_email_not_contains: String
+  user_email_starts_with: String
+  user_email_not_starts_with: String
+  user_email_ends_with: String
+  user_email_not_ends_with: String
+  user_password: String
+  user_password_not: String
+  user_password_in: [String!]
+  user_password_not_in: [String!]
+  user_password_lt: String
+  user_password_lte: String
+  user_password_gt: String
+  user_password_gte: String
+  user_password_contains: String
+  user_password_not_contains: String
+  user_password_starts_with: String
+  user_password_not_starts_with: String
+  user_password_ends_with: String
+  user_password_not_ends_with: String
+  user_role: User_Role
+  user_role_not: User_Role
+  user_role_in: [User_Role!]
+  user_role_not_in: [User_Role!]
   AND: [UserWhereInput!]
 }
 
 input UserWhereUniqueInput {
   id: ID
-  email: String
+  user_email: String
 }
 `
       }
