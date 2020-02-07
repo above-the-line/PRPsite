@@ -1,4 +1,5 @@
 .env
 .editorconfig
 node_modules
+generated
 *.log
