@@ -27,8 +27,11 @@ and validate if the user who submitted the request is eligible to perform the re
 const server = new GraphQLServer({
     typeDefs: './schema.graphql',
     resolvers,
-    context: {
-      prisma,
+    context: response => {
+      return {
+      	...response,
+      	prisma,
+      }
     },
 })
 

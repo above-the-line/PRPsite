@@ -179,14 +179,6 @@ export interface ClientConstructor<T> {
  * Types
  */
 
-export type Media_ItemOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "banner_image_url_ASC"
-  | "banner_image_url_DESC"
-  | "video_url_ASC"
-  | "video_url_DESC";
-
 export type ProjectOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -198,6 +190,16 @@ export type ProjectOrderByInput =
   | "film_project_DESC"
   | "tech_project_ASC"
   | "tech_project_DESC";
+
+export type MutationType = "CREATED" | "UPDATED" | "DELETED";
+
+export type Media_ItemOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "banner_image_url_ASC"
+  | "banner_image_url_DESC"
+  | "video_url_ASC"
+  | "video_url_DESC";
 
 export type User_Role = "VISITOR" | "ADMIN" | "CUSTOMER";
 
@@ -213,143 +215,16 @@ export type UserOrderByInput =
   | "user_role_ASC"
   | "user_role_DESC";
 
-export type MutationType = "CREATED" | "UPDATED" | "DELETED";
-
-export type Media_ItemWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface Media_ItemWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  banner_image_url?: Maybe<String>;
-  banner_image_url_not?: Maybe<String>;
-  banner_image_url_in?: Maybe<String[] | String>;
-  banner_image_url_not_in?: Maybe<String[] | String>;
-  banner_image_url_lt?: Maybe<String>;
-  banner_image_url_lte?: Maybe<String>;
-  banner_image_url_gt?: Maybe<String>;
-  banner_image_url_gte?: Maybe<String>;
-  banner_image_url_contains?: Maybe<String>;
-  banner_image_url_not_contains?: Maybe<String>;
-  banner_image_url_starts_with?: Maybe<String>;
-  banner_image_url_not_starts_with?: Maybe<String>;
-  banner_image_url_ends_with?: Maybe<String>;
-  banner_image_url_not_ends_with?: Maybe<String>;
-  video_url?: Maybe<String>;
-  video_url_not?: Maybe<String>;
-  video_url_in?: Maybe<String[] | String>;
-  video_url_not_in?: Maybe<String[] | String>;
-  video_url_lt?: Maybe<String>;
-  video_url_lte?: Maybe<String>;
-  video_url_gt?: Maybe<String>;
-  video_url_gte?: Maybe<String>;
-  video_url_contains?: Maybe<String>;
-  video_url_not_contains?: Maybe<String>;
-  video_url_starts_with?: Maybe<String>;
-  video_url_not_starts_with?: Maybe<String>;
-  video_url_ends_with?: Maybe<String>;
-  video_url_not_ends_with?: Maybe<String>;
-  AND?: Maybe<Media_ItemWhereInput[] | Media_ItemWhereInput>;
-}
-
-export type ProjectWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface ProjectWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  project_name?: Maybe<String>;
-  project_name_not?: Maybe<String>;
-  project_name_in?: Maybe<String[] | String>;
-  project_name_not_in?: Maybe<String[] | String>;
-  project_name_lt?: Maybe<String>;
-  project_name_lte?: Maybe<String>;
-  project_name_gt?: Maybe<String>;
-  project_name_gte?: Maybe<String>;
-  project_name_contains?: Maybe<String>;
-  project_name_not_contains?: Maybe<String>;
-  project_name_starts_with?: Maybe<String>;
-  project_name_not_starts_with?: Maybe<String>;
-  project_name_ends_with?: Maybe<String>;
-  project_name_not_ends_with?: Maybe<String>;
-  project_year?: Maybe<Int>;
-  project_year_not?: Maybe<Int>;
-  project_year_in?: Maybe<Int[] | Int>;
-  project_year_not_in?: Maybe<Int[] | Int>;
-  project_year_lt?: Maybe<Int>;
-  project_year_lte?: Maybe<Int>;
-  project_year_gt?: Maybe<Int>;
-  project_year_gte?: Maybe<Int>;
-  film_project?: Maybe<Boolean>;
-  film_project_not?: Maybe<Boolean>;
-  tech_project?: Maybe<Boolean>;
-  tech_project_not?: Maybe<Boolean>;
-  avi_roles_on_project?: Maybe<Avi_RolesWhereInput>;
-  project_media_some?: Maybe<Media_ItemWhereInput>;
-  project_category?: Maybe<Project_CategoryWhereInput>;
-  AND?: Maybe<ProjectWhereInput[] | ProjectWhereInput>;
-}
-
-export interface Avi_RolesWhereInput {
-  avi_director?: Maybe<Boolean>;
-  avi_director_not?: Maybe<Boolean>;
-  avi_gaffer?: Maybe<Boolean>;
-  avi_gaffer_not?: Maybe<Boolean>;
-  avi_cinematographer?: Maybe<Boolean>;
-  avi_cinematographer_not?: Maybe<Boolean>;
-  avi_writer?: Maybe<Boolean>;
-  avi_writer_not?: Maybe<Boolean>;
-  avi_camera_operator?: Maybe<Boolean>;
-  avi_camera_operator_not?: Maybe<Boolean>;
-  avi_lighting_technician?: Maybe<Boolean>;
-  avi_lighting_technician_not?: Maybe<Boolean>;
-  avi_front_end_dev?: Maybe<Boolean>;
-  avi_front_end_dev_not?: Maybe<Boolean>;
-  avi_back_end_dev?: Maybe<Boolean>;
-  avi_back_end_dev_not?: Maybe<Boolean>;
-  avi_full_stack_dev?: Maybe<Boolean>;
-  avi_full_stack_dev_not?: Maybe<Boolean>;
-  AND?: Maybe<Avi_RolesWhereInput[] | Avi_RolesWhereInput>;
-}
-
-export interface Project_CategoryWhereInput {
-  short_film?: Maybe<Boolean>;
-  short_film_not?: Maybe<Boolean>;
-  feature_film?: Maybe<Boolean>;
-  feature_film_not?: Maybe<Boolean>;
-  AND?: Maybe<Project_CategoryWhereInput[] | Project_CategoryWhereInput>;
-}
-
 export type UserWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
   user_email?: Maybe<String>;
 }>;
+
+export interface Avi_RolesUpdateOneRequiredInput {
+  create?: Maybe<Avi_RolesCreateInput>;
+  update?: Maybe<Avi_RolesUpdateDataInput>;
+  upsert?: Maybe<Avi_RolesUpsertNestedInput>;
+}
 
 export interface UserWhereInput {
   id?: Maybe<ID_Input>;
@@ -415,95 +290,47 @@ export interface UserWhereInput {
   AND?: Maybe<UserWhereInput[] | UserWhereInput>;
 }
 
-export interface Media_ItemCreateInput {
+export type Media_ItemWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface ProjectSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<ProjectWhereInput>;
+  AND?: Maybe<ProjectSubscriptionWhereInput[] | ProjectSubscriptionWhereInput>;
+}
+
+export interface UserUpdateManyMutationInput {
+  user_name?: Maybe<String>;
+  user_email?: Maybe<String>;
+  user_password?: Maybe<String>;
+  user_role?: Maybe<User_Role>;
+}
+
+export interface Media_ItemUpdateDataInput {
+  banner_image_url?: Maybe<String>;
+  video_url?: Maybe<String>;
+}
+
+export interface UserCreateInput {
   id?: Maybe<ID_Input>;
-  banner_image_url?: Maybe<String>;
-  video_url?: Maybe<String>;
+  user_name: String;
+  user_email?: Maybe<String>;
+  user_password?: Maybe<String>;
+  user_role?: Maybe<User_Role>;
 }
 
-export interface Media_ItemUpdateInput {
-  banner_image_url?: Maybe<String>;
-  video_url?: Maybe<String>;
+export interface Media_ItemUpdateWithWhereUniqueNestedInput {
+  where: Media_ItemWhereUniqueInput;
+  data: Media_ItemUpdateDataInput;
 }
 
-export interface Media_ItemUpdateManyMutationInput {
-  banner_image_url?: Maybe<String>;
-  video_url?: Maybe<String>;
-}
-
-export interface ProjectCreateInput {
-  id?: Maybe<ID_Input>;
-  project_name: String;
-  project_year: Int;
-  film_project?: Maybe<Boolean>;
-  tech_project?: Maybe<Boolean>;
-  avi_roles_on_project: Avi_RolesCreateOneInput;
-  project_media?: Maybe<Media_ItemCreateManyInput>;
-  project_category?: Maybe<Project_CategoryCreateOneInput>;
-}
-
-export interface Avi_RolesCreateOneInput {
-  create?: Maybe<Avi_RolesCreateInput>;
-}
-
-export interface Avi_RolesCreateInput {
-  avi_director?: Maybe<Boolean>;
-  avi_gaffer?: Maybe<Boolean>;
-  avi_cinematographer?: Maybe<Boolean>;
-  avi_writer?: Maybe<Boolean>;
-  avi_camera_operator?: Maybe<Boolean>;
-  avi_lighting_technician?: Maybe<Boolean>;
-  avi_front_end_dev?: Maybe<Boolean>;
-  avi_back_end_dev?: Maybe<Boolean>;
-  avi_full_stack_dev?: Maybe<Boolean>;
-}
-
-export interface Media_ItemCreateManyInput {
-  create?: Maybe<Media_ItemCreateInput[] | Media_ItemCreateInput>;
-  connect?: Maybe<Media_ItemWhereUniqueInput[] | Media_ItemWhereUniqueInput>;
-}
-
-export interface Project_CategoryCreateOneInput {
-  create?: Maybe<Project_CategoryCreateInput>;
-}
-
-export interface Project_CategoryCreateInput {
-  short_film?: Maybe<Boolean>;
-  feature_film?: Maybe<Boolean>;
-}
-
-export interface ProjectUpdateInput {
-  project_name?: Maybe<String>;
-  project_year?: Maybe<Int>;
-  film_project?: Maybe<Boolean>;
-  tech_project?: Maybe<Boolean>;
-  avi_roles_on_project?: Maybe<Avi_RolesUpdateOneRequiredInput>;
-  project_media?: Maybe<Media_ItemUpdateManyInput>;
-  project_category?: Maybe<Project_CategoryUpdateOneInput>;
-}
-
-export interface Avi_RolesUpdateOneRequiredInput {
-  create?: Maybe<Avi_RolesCreateInput>;
-  update?: Maybe<Avi_RolesUpdateDataInput>;
-  upsert?: Maybe<Avi_RolesUpsertNestedInput>;
-}
-
-export interface Avi_RolesUpdateDataInput {
-  avi_director?: Maybe<Boolean>;
-  avi_gaffer?: Maybe<Boolean>;
-  avi_cinematographer?: Maybe<Boolean>;
-  avi_writer?: Maybe<Boolean>;
-  avi_camera_operator?: Maybe<Boolean>;
-  avi_lighting_technician?: Maybe<Boolean>;
-  avi_front_end_dev?: Maybe<Boolean>;
-  avi_back_end_dev?: Maybe<Boolean>;
-  avi_full_stack_dev?: Maybe<Boolean>;
-}
-
-export interface Avi_RolesUpsertNestedInput {
-  update: Avi_RolesUpdateDataInput;
-  create: Avi_RolesCreateInput;
-}
+export type ProjectWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
 
 export interface Media_ItemUpdateManyInput {
   create?: Maybe<Media_ItemCreateInput[] | Media_ItemCreateInput>;
@@ -526,20 +353,80 @@ export interface Media_ItemUpdateManyInput {
   >;
 }
 
-export interface Media_ItemUpdateWithWhereUniqueNestedInput {
-  where: Media_ItemWhereUniqueInput;
-  data: Media_ItemUpdateDataInput;
+export interface Project_CategoryUpdateDataInput {
+  short_film?: Maybe<Boolean>;
+  feature_film?: Maybe<Boolean>;
 }
 
-export interface Media_ItemUpdateDataInput {
+export interface ProjectWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  project_name?: Maybe<String>;
+  project_name_not?: Maybe<String>;
+  project_name_in?: Maybe<String[] | String>;
+  project_name_not_in?: Maybe<String[] | String>;
+  project_name_lt?: Maybe<String>;
+  project_name_lte?: Maybe<String>;
+  project_name_gt?: Maybe<String>;
+  project_name_gte?: Maybe<String>;
+  project_name_contains?: Maybe<String>;
+  project_name_not_contains?: Maybe<String>;
+  project_name_starts_with?: Maybe<String>;
+  project_name_not_starts_with?: Maybe<String>;
+  project_name_ends_with?: Maybe<String>;
+  project_name_not_ends_with?: Maybe<String>;
+  project_year?: Maybe<Int>;
+  project_year_not?: Maybe<Int>;
+  project_year_in?: Maybe<Int[] | Int>;
+  project_year_not_in?: Maybe<Int[] | Int>;
+  project_year_lt?: Maybe<Int>;
+  project_year_lte?: Maybe<Int>;
+  project_year_gt?: Maybe<Int>;
+  project_year_gte?: Maybe<Int>;
+  film_project?: Maybe<Boolean>;
+  film_project_not?: Maybe<Boolean>;
+  tech_project?: Maybe<Boolean>;
+  tech_project_not?: Maybe<Boolean>;
+  avi_roles_on_project?: Maybe<Avi_RolesWhereInput>;
+  project_media_some?: Maybe<Media_ItemWhereInput>;
+  project_category?: Maybe<Project_CategoryWhereInput>;
+  AND?: Maybe<ProjectWhereInput[] | ProjectWhereInput>;
+}
+
+export interface Project_CategoryWhereInput {
+  short_film?: Maybe<Boolean>;
+  short_film_not?: Maybe<Boolean>;
+  feature_film?: Maybe<Boolean>;
+  feature_film_not?: Maybe<Boolean>;
+  AND?: Maybe<Project_CategoryWhereInput[] | Project_CategoryWhereInput>;
+}
+
+export interface Media_ItemCreateInput {
+  id?: Maybe<ID_Input>;
   banner_image_url?: Maybe<String>;
   video_url?: Maybe<String>;
 }
 
-export interface Media_ItemUpsertWithWhereUniqueNestedInput {
-  where: Media_ItemWhereUniqueInput;
-  update: Media_ItemUpdateDataInput;
-  create: Media_ItemCreateInput;
+export interface Media_ItemUpdateManyDataInput {
+  banner_image_url?: Maybe<String>;
+  video_url?: Maybe<String>;
+}
+
+export interface Media_ItemUpdateInput {
+  banner_image_url?: Maybe<String>;
+  video_url?: Maybe<String>;
 }
 
 export interface Media_ItemScalarWhereInput {
@@ -590,47 +477,20 @@ export interface Media_ItemScalarWhereInput {
   NOT?: Maybe<Media_ItemScalarWhereInput[] | Media_ItemScalarWhereInput>;
 }
 
-export interface Media_ItemUpdateManyWithWhereNestedInput {
-  where: Media_ItemScalarWhereInput;
-  data: Media_ItemUpdateManyDataInput;
-}
-
-export interface Media_ItemUpdateManyDataInput {
+export interface Media_ItemUpdateManyMutationInput {
   banner_image_url?: Maybe<String>;
   video_url?: Maybe<String>;
 }
 
-export interface Project_CategoryUpdateOneInput {
-  create?: Maybe<Project_CategoryCreateInput>;
-  update?: Maybe<Project_CategoryUpdateDataInput>;
-  upsert?: Maybe<Project_CategoryUpsertNestedInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
+export interface Media_ItemUpsertWithWhereUniqueNestedInput {
+  where: Media_ItemWhereUniqueInput;
+  update: Media_ItemUpdateDataInput;
+  create: Media_ItemCreateInput;
 }
 
-export interface Project_CategoryUpdateDataInput {
-  short_film?: Maybe<Boolean>;
-  feature_film?: Maybe<Boolean>;
-}
-
-export interface Project_CategoryUpsertNestedInput {
-  update: Project_CategoryUpdateDataInput;
-  create: Project_CategoryCreateInput;
-}
-
-export interface ProjectUpdateManyMutationInput {
-  project_name?: Maybe<String>;
-  project_year?: Maybe<Int>;
-  film_project?: Maybe<Boolean>;
-  tech_project?: Maybe<Boolean>;
-}
-
-export interface UserCreateInput {
-  id?: Maybe<ID_Input>;
-  user_name: String;
-  user_email?: Maybe<String>;
-  user_password?: Maybe<String>;
-  user_role?: Maybe<User_Role>;
+export interface Avi_RolesUpsertNestedInput {
+  update: Avi_RolesUpdateDataInput;
+  create: Avi_RolesCreateInput;
 }
 
 export interface UserUpdateInput {
@@ -640,11 +500,161 @@ export interface UserUpdateInput {
   user_role?: Maybe<User_Role>;
 }
 
-export interface UserUpdateManyMutationInput {
-  user_name?: Maybe<String>;
-  user_email?: Maybe<String>;
-  user_password?: Maybe<String>;
-  user_role?: Maybe<User_Role>;
+export interface Avi_RolesUpdateDataInput {
+  avi_director?: Maybe<Boolean>;
+  avi_gaffer?: Maybe<Boolean>;
+  avi_cinematographer?: Maybe<Boolean>;
+  avi_writer?: Maybe<Boolean>;
+  avi_camera_operator?: Maybe<Boolean>;
+  avi_lighting_technician?: Maybe<Boolean>;
+  avi_front_end_dev?: Maybe<Boolean>;
+  avi_back_end_dev?: Maybe<Boolean>;
+  avi_full_stack_dev?: Maybe<Boolean>;
+}
+
+export interface Project_CategoryUpsertNestedInput {
+  update: Project_CategoryUpdateDataInput;
+  create: Project_CategoryCreateInput;
+}
+
+export interface ProjectCreateInput {
+  id?: Maybe<ID_Input>;
+  project_name: String;
+  project_year: Int;
+  film_project?: Maybe<Boolean>;
+  tech_project?: Maybe<Boolean>;
+  avi_roles_on_project: Avi_RolesCreateOneInput;
+  project_media?: Maybe<Media_ItemCreateManyInput>;
+  project_category?: Maybe<Project_CategoryCreateOneInput>;
+}
+
+export interface Avi_RolesWhereInput {
+  avi_director?: Maybe<Boolean>;
+  avi_director_not?: Maybe<Boolean>;
+  avi_gaffer?: Maybe<Boolean>;
+  avi_gaffer_not?: Maybe<Boolean>;
+  avi_cinematographer?: Maybe<Boolean>;
+  avi_cinematographer_not?: Maybe<Boolean>;
+  avi_writer?: Maybe<Boolean>;
+  avi_writer_not?: Maybe<Boolean>;
+  avi_camera_operator?: Maybe<Boolean>;
+  avi_camera_operator_not?: Maybe<Boolean>;
+  avi_lighting_technician?: Maybe<Boolean>;
+  avi_lighting_technician_not?: Maybe<Boolean>;
+  avi_front_end_dev?: Maybe<Boolean>;
+  avi_front_end_dev_not?: Maybe<Boolean>;
+  avi_back_end_dev?: Maybe<Boolean>;
+  avi_back_end_dev_not?: Maybe<Boolean>;
+  avi_full_stack_dev?: Maybe<Boolean>;
+  avi_full_stack_dev_not?: Maybe<Boolean>;
+  AND?: Maybe<Avi_RolesWhereInput[] | Avi_RolesWhereInput>;
+}
+
+export interface Avi_RolesCreateOneInput {
+  create?: Maybe<Avi_RolesCreateInput>;
+}
+
+export interface Media_ItemUpdateManyWithWhereNestedInput {
+  where: Media_ItemScalarWhereInput;
+  data: Media_ItemUpdateManyDataInput;
+}
+
+export interface Avi_RolesCreateInput {
+  avi_director?: Maybe<Boolean>;
+  avi_gaffer?: Maybe<Boolean>;
+  avi_cinematographer?: Maybe<Boolean>;
+  avi_writer?: Maybe<Boolean>;
+  avi_camera_operator?: Maybe<Boolean>;
+  avi_lighting_technician?: Maybe<Boolean>;
+  avi_front_end_dev?: Maybe<Boolean>;
+  avi_back_end_dev?: Maybe<Boolean>;
+  avi_full_stack_dev?: Maybe<Boolean>;
+}
+
+export interface Media_ItemWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  banner_image_url?: Maybe<String>;
+  banner_image_url_not?: Maybe<String>;
+  banner_image_url_in?: Maybe<String[] | String>;
+  banner_image_url_not_in?: Maybe<String[] | String>;
+  banner_image_url_lt?: Maybe<String>;
+  banner_image_url_lte?: Maybe<String>;
+  banner_image_url_gt?: Maybe<String>;
+  banner_image_url_gte?: Maybe<String>;
+  banner_image_url_contains?: Maybe<String>;
+  banner_image_url_not_contains?: Maybe<String>;
+  banner_image_url_starts_with?: Maybe<String>;
+  banner_image_url_not_starts_with?: Maybe<String>;
+  banner_image_url_ends_with?: Maybe<String>;
+  banner_image_url_not_ends_with?: Maybe<String>;
+  video_url?: Maybe<String>;
+  video_url_not?: Maybe<String>;
+  video_url_in?: Maybe<String[] | String>;
+  video_url_not_in?: Maybe<String[] | String>;
+  video_url_lt?: Maybe<String>;
+  video_url_lte?: Maybe<String>;
+  video_url_gt?: Maybe<String>;
+  video_url_gte?: Maybe<String>;
+  video_url_contains?: Maybe<String>;
+  video_url_not_contains?: Maybe<String>;
+  video_url_starts_with?: Maybe<String>;
+  video_url_not_starts_with?: Maybe<String>;
+  video_url_ends_with?: Maybe<String>;
+  video_url_not_ends_with?: Maybe<String>;
+  AND?: Maybe<Media_ItemWhereInput[] | Media_ItemWhereInput>;
+}
+
+export interface ProjectUpdateInput {
+  project_name?: Maybe<String>;
+  project_year?: Maybe<Int>;
+  film_project?: Maybe<Boolean>;
+  tech_project?: Maybe<Boolean>;
+  avi_roles_on_project?: Maybe<Avi_RolesUpdateOneRequiredInput>;
+  project_media?: Maybe<Media_ItemUpdateManyInput>;
+  project_category?: Maybe<Project_CategoryUpdateOneInput>;
+}
+
+export interface Project_CategoryCreateInput {
+  short_film?: Maybe<Boolean>;
+  feature_film?: Maybe<Boolean>;
+}
+
+export interface Project_CategoryCreateOneInput {
+  create?: Maybe<Project_CategoryCreateInput>;
+}
+
+export interface Media_ItemCreateManyInput {
+  create?: Maybe<Media_ItemCreateInput[] | Media_ItemCreateInput>;
+  connect?: Maybe<Media_ItemWhereUniqueInput[] | Media_ItemWhereUniqueInput>;
+}
+
+export interface ProjectUpdateManyMutationInput {
+  project_name?: Maybe<String>;
+  project_year?: Maybe<Int>;
+  film_project?: Maybe<Boolean>;
+  tech_project?: Maybe<Boolean>;
+}
+
+export interface UserSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<UserWhereInput>;
+  AND?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
 }
 
 export interface Media_ItemSubscriptionWhereInput {
@@ -658,75 +668,214 @@ export interface Media_ItemSubscriptionWhereInput {
   >;
 }
 
-export interface ProjectSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<ProjectWhereInput>;
-  AND?: Maybe<ProjectSubscriptionWhereInput[] | ProjectSubscriptionWhereInput>;
-}
-
-export interface UserSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<UserWhereInput>;
-  AND?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
+export interface Project_CategoryUpdateOneInput {
+  create?: Maybe<Project_CategoryCreateInput>;
+  update?: Maybe<Project_CategoryUpdateDataInput>;
+  upsert?: Maybe<Project_CategoryUpsertNestedInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
 }
 
 export interface NodeNode {
   id: ID_Output;
 }
 
-export interface Media_Item {
+export interface BatchPayload {
+  count: Long;
+}
+
+export interface BatchPayloadPromise
+  extends Promise<BatchPayload>,
+    Fragmentable {
+  count: () => Promise<Long>;
+}
+
+export interface BatchPayloadSubscription
+  extends Promise<AsyncIterator<BatchPayload>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Long>>;
+}
+
+export interface Media_ItemEdge {
+  node: Media_Item;
+  cursor: String;
+}
+
+export interface Media_ItemEdgePromise
+  extends Promise<Media_ItemEdge>,
+    Fragmentable {
+  node: <T = Media_ItemPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface Media_ItemEdgeSubscription
+  extends Promise<AsyncIterator<Media_ItemEdge>>,
+    Fragmentable {
+  node: <T = Media_ItemSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface UserPreviousValues {
   id: ID_Output;
-  banner_image_url?: String;
-  video_url?: String;
+  user_name: String;
+  user_email?: String;
+  user_password?: String;
+  user_role?: User_Role;
 }
 
-export interface Media_ItemPromise extends Promise<Media_Item>, Fragmentable {
+export interface UserPreviousValuesPromise
+  extends Promise<UserPreviousValues>,
+    Fragmentable {
   id: () => Promise<ID_Output>;
-  banner_image_url: () => Promise<String>;
-  video_url: () => Promise<String>;
+  user_name: () => Promise<String>;
+  user_email: () => Promise<String>;
+  user_password: () => Promise<String>;
+  user_role: () => Promise<User_Role>;
 }
 
-export interface Media_ItemSubscription
-  extends Promise<AsyncIterator<Media_Item>>,
+export interface UserPreviousValuesSubscription
+  extends Promise<AsyncIterator<UserPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  banner_image_url: () => Promise<AsyncIterator<String>>;
-  video_url: () => Promise<AsyncIterator<String>>;
+  user_name: () => Promise<AsyncIterator<String>>;
+  user_email: () => Promise<AsyncIterator<String>>;
+  user_password: () => Promise<AsyncIterator<String>>;
+  user_role: () => Promise<AsyncIterator<User_Role>>;
 }
 
-export interface Media_ItemNullablePromise
-  extends Promise<Media_Item | null>,
+export interface AggregateMedia_Item {
+  count: Int;
+}
+
+export interface AggregateMedia_ItemPromise
+  extends Promise<AggregateMedia_Item>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateMedia_ItemSubscription
+  extends Promise<AsyncIterator<AggregateMedia_Item>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ProjectSubscriptionPayload {
+  mutation: MutationType;
+  node: Project;
+  updatedFields: String[];
+  previousValues: ProjectPreviousValues;
+}
+
+export interface ProjectSubscriptionPayloadPromise
+  extends Promise<ProjectSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ProjectPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ProjectPreviousValuesPromise>() => T;
+}
+
+export interface ProjectSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ProjectSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ProjectSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ProjectPreviousValuesSubscription>() => T;
+}
+
+export interface UserSubscriptionPayload {
+  mutation: MutationType;
+  node: User;
+  updatedFields: String[];
+  previousValues: UserPreviousValues;
+}
+
+export interface UserSubscriptionPayloadPromise
+  extends Promise<UserSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = UserPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = UserPreviousValuesPromise>() => T;
+}
+
+export interface UserSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<UserSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = UserSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = UserPreviousValuesSubscription>() => T;
+}
+
+export interface AggregateUser {
+  count: Int;
+}
+
+export interface AggregateUserPromise
+  extends Promise<AggregateUser>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateUserSubscription
+  extends Promise<AsyncIterator<AggregateUser>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface UserEdge {
+  node: User;
+  cursor: String;
+}
+
+export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
+  node: <T = UserPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface UserEdgeSubscription
+  extends Promise<AsyncIterator<UserEdge>>,
+    Fragmentable {
+  node: <T = UserSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface User {
+  id: ID_Output;
+  user_name: String;
+  user_email?: String;
+  user_password?: String;
+  user_role?: User_Role;
+}
+
+export interface UserPromise extends Promise<User>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  user_name: () => Promise<String>;
+  user_email: () => Promise<String>;
+  user_password: () => Promise<String>;
+  user_role: () => Promise<User_Role>;
+}
+
+export interface UserSubscription
+  extends Promise<AsyncIterator<User>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  user_name: () => Promise<AsyncIterator<String>>;
+  user_email: () => Promise<AsyncIterator<String>>;
+  user_password: () => Promise<AsyncIterator<String>>;
+  user_role: () => Promise<AsyncIterator<User_Role>>;
+}
+
+export interface UserNullablePromise
+  extends Promise<User | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  banner_image_url: () => Promise<String>;
-  video_url: () => Promise<String>;
-}
-
-export interface Media_ItemConnection {
-  pageInfo: PageInfo;
-  edges: Media_ItemEdge[];
-}
-
-export interface Media_ItemConnectionPromise
-  extends Promise<Media_ItemConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<Media_ItemEdge>>() => T;
-  aggregate: <T = AggregateMedia_ItemPromise>() => T;
-}
-
-export interface Media_ItemConnectionSubscription
-  extends Promise<AsyncIterator<Media_ItemConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<Media_ItemEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateMedia_ItemSubscription>() => T;
+  user_name: () => Promise<String>;
+  user_email: () => Promise<String>;
+  user_password: () => Promise<String>;
+  user_role: () => Promise<User_Role>;
 }
 
 export interface PageInfo {
@@ -752,39 +901,68 @@ export interface PageInfoSubscription
   endCursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface Media_ItemEdge {
-  node: Media_Item;
+export interface ProjectEdge {
+  node: Project;
   cursor: String;
 }
 
-export interface Media_ItemEdgePromise
-  extends Promise<Media_ItemEdge>,
-    Fragmentable {
-  node: <T = Media_ItemPromise>() => T;
+export interface ProjectEdgePromise extends Promise<ProjectEdge>, Fragmentable {
+  node: <T = ProjectPromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface Media_ItemEdgeSubscription
-  extends Promise<AsyncIterator<Media_ItemEdge>>,
+export interface ProjectEdgeSubscription
+  extends Promise<AsyncIterator<ProjectEdge>>,
     Fragmentable {
-  node: <T = Media_ItemSubscription>() => T;
+  node: <T = ProjectSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AggregateMedia_Item {
-  count: Int;
+export interface Media_ItemConnection {
+  pageInfo: PageInfo;
+  edges: Media_ItemEdge[];
 }
 
-export interface AggregateMedia_ItemPromise
-  extends Promise<AggregateMedia_Item>,
+export interface Media_ItemConnectionPromise
+  extends Promise<Media_ItemConnection>,
     Fragmentable {
-  count: () => Promise<Int>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<Media_ItemEdge>>() => T;
+  aggregate: <T = AggregateMedia_ItemPromise>() => T;
 }
 
-export interface AggregateMedia_ItemSubscription
-  extends Promise<AsyncIterator<AggregateMedia_Item>>,
+export interface Media_ItemConnectionSubscription
+  extends Promise<AsyncIterator<Media_ItemConnection>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<Media_ItemEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateMedia_ItemSubscription>() => T;
+}
+
+export interface Project_Category {
+  short_film?: Boolean;
+  feature_film?: Boolean;
+}
+
+export interface Project_CategoryPromise
+  extends Promise<Project_Category>,
+    Fragmentable {
+  short_film: () => Promise<Boolean>;
+  feature_film: () => Promise<Boolean>;
+}
+
+export interface Project_CategorySubscription
+  extends Promise<AsyncIterator<Project_Category>>,
+    Fragmentable {
+  short_film: () => Promise<AsyncIterator<Boolean>>;
+  feature_film: () => Promise<AsyncIterator<Boolean>>;
+}
+
+export interface Project_CategoryNullablePromise
+  extends Promise<Project_Category | null>,
+    Fragmentable {
+  short_film: () => Promise<Boolean>;
+  feature_film: () => Promise<Boolean>;
 }
 
 export interface Project {
@@ -858,6 +1036,130 @@ export interface ProjectNullablePromise
   project_category: <T = Project_CategoryPromise>() => T;
 }
 
+export interface ProjectPreviousValues {
+  id: ID_Output;
+  project_name: String;
+  project_year: Int;
+  film_project?: Boolean;
+  tech_project?: Boolean;
+}
+
+export interface ProjectPreviousValuesPromise
+  extends Promise<ProjectPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  project_name: () => Promise<String>;
+  project_year: () => Promise<Int>;
+  film_project: () => Promise<Boolean>;
+  tech_project: () => Promise<Boolean>;
+}
+
+export interface ProjectPreviousValuesSubscription
+  extends Promise<AsyncIterator<ProjectPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  project_name: () => Promise<AsyncIterator<String>>;
+  project_year: () => Promise<AsyncIterator<Int>>;
+  film_project: () => Promise<AsyncIterator<Boolean>>;
+  tech_project: () => Promise<AsyncIterator<Boolean>>;
+}
+
+export interface Media_ItemPreviousValues {
+  id: ID_Output;
+  banner_image_url?: String;
+  video_url?: String;
+}
+
+export interface Media_ItemPreviousValuesPromise
+  extends Promise<Media_ItemPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  banner_image_url: () => Promise<String>;
+  video_url: () => Promise<String>;
+}
+
+export interface Media_ItemPreviousValuesSubscription
+  extends Promise<AsyncIterator<Media_ItemPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  banner_image_url: () => Promise<AsyncIterator<String>>;
+  video_url: () => Promise<AsyncIterator<String>>;
+}
+
+export interface Media_ItemSubscriptionPayload {
+  mutation: MutationType;
+  node: Media_Item;
+  updatedFields: String[];
+  previousValues: Media_ItemPreviousValues;
+}
+
+export interface Media_ItemSubscriptionPayloadPromise
+  extends Promise<Media_ItemSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = Media_ItemPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = Media_ItemPreviousValuesPromise>() => T;
+}
+
+export interface Media_ItemSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<Media_ItemSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = Media_ItemSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = Media_ItemPreviousValuesSubscription>() => T;
+}
+
+export interface Media_Item {
+  id: ID_Output;
+  banner_image_url?: String;
+  video_url?: String;
+}
+
+export interface Media_ItemPromise extends Promise<Media_Item>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  banner_image_url: () => Promise<String>;
+  video_url: () => Promise<String>;
+}
+
+export interface Media_ItemSubscription
+  extends Promise<AsyncIterator<Media_Item>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  banner_image_url: () => Promise<AsyncIterator<String>>;
+  video_url: () => Promise<AsyncIterator<String>>;
+}
+
+export interface Media_ItemNullablePromise
+  extends Promise<Media_Item | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  banner_image_url: () => Promise<String>;
+  video_url: () => Promise<String>;
+}
+
+export interface UserConnection {
+  pageInfo: PageInfo;
+  edges: UserEdge[];
+}
+
+export interface UserConnectionPromise
+  extends Promise<UserConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<UserEdge>>() => T;
+  aggregate: <T = AggregateUserPromise>() => T;
+}
+
+export interface UserConnectionSubscription
+  extends Promise<AsyncIterator<UserConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateUserSubscription>() => T;
+}
+
 export interface Avi_Roles {
   avi_director?: Boolean;
   avi_gaffer?: Boolean;
@@ -910,32 +1212,6 @@ export interface Avi_RolesNullablePromise
   avi_full_stack_dev: () => Promise<Boolean>;
 }
 
-export interface Project_Category {
-  short_film?: Boolean;
-  feature_film?: Boolean;
-}
-
-export interface Project_CategoryPromise
-  extends Promise<Project_Category>,
-    Fragmentable {
-  short_film: () => Promise<Boolean>;
-  feature_film: () => Promise<Boolean>;
-}
-
-export interface Project_CategorySubscription
-  extends Promise<AsyncIterator<Project_Category>>,
-    Fragmentable {
-  short_film: () => Promise<AsyncIterator<Boolean>>;
-  feature_film: () => Promise<AsyncIterator<Boolean>>;
-}
-
-export interface Project_CategoryNullablePromise
-  extends Promise<Project_Category | null>,
-    Fragmentable {
-  short_film: () => Promise<Boolean>;
-  feature_film: () => Promise<Boolean>;
-}
-
 export interface ProjectConnection {
   pageInfo: PageInfo;
   edges: ProjectEdge[];
@@ -957,23 +1233,6 @@ export interface ProjectConnectionSubscription
   aggregate: <T = AggregateProjectSubscription>() => T;
 }
 
-export interface ProjectEdge {
-  node: Project;
-  cursor: String;
-}
-
-export interface ProjectEdgePromise extends Promise<ProjectEdge>, Fragmentable {
-  node: <T = ProjectPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ProjectEdgeSubscription
-  extends Promise<AsyncIterator<ProjectEdge>>,
-    Fragmentable {
-  node: <T = ProjectSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
 export interface AggregateProject {
   count: Int;
 }
@@ -990,264 +1249,12 @@ export interface AggregateProjectSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface User {
-  id: ID_Output;
-  user_name: String;
-  user_email?: String;
-  user_password?: String;
-  user_role?: User_Role;
-}
+/*
+The `Boolean` scalar type represents `true` or `false`.
+*/
+export type Boolean = boolean;
 
-export interface UserPromise extends Promise<User>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  user_name: () => Promise<String>;
-  user_email: () => Promise<String>;
-  user_password: () => Promise<String>;
-  user_role: () => Promise<User_Role>;
-}
-
-export interface UserSubscription
-  extends Promise<AsyncIterator<User>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  user_name: () => Promise<AsyncIterator<String>>;
-  user_email: () => Promise<AsyncIterator<String>>;
-  user_password: () => Promise<AsyncIterator<String>>;
-  user_role: () => Promise<AsyncIterator<User_Role>>;
-}
-
-export interface UserNullablePromise
-  extends Promise<User | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  user_name: () => Promise<String>;
-  user_email: () => Promise<String>;
-  user_password: () => Promise<String>;
-  user_role: () => Promise<User_Role>;
-}
-
-export interface UserConnection {
-  pageInfo: PageInfo;
-  edges: UserEdge[];
-}
-
-export interface UserConnectionPromise
-  extends Promise<UserConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<UserEdge>>() => T;
-  aggregate: <T = AggregateUserPromise>() => T;
-}
-
-export interface UserConnectionSubscription
-  extends Promise<AsyncIterator<UserConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateUserSubscription>() => T;
-}
-
-export interface UserEdge {
-  node: User;
-  cursor: String;
-}
-
-export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
-  node: <T = UserPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface UserEdgeSubscription
-  extends Promise<AsyncIterator<UserEdge>>,
-    Fragmentable {
-  node: <T = UserSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateUser {
-  count: Int;
-}
-
-export interface AggregateUserPromise
-  extends Promise<AggregateUser>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateUserSubscription
-  extends Promise<AsyncIterator<AggregateUser>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface BatchPayload {
-  count: Long;
-}
-
-export interface BatchPayloadPromise
-  extends Promise<BatchPayload>,
-    Fragmentable {
-  count: () => Promise<Long>;
-}
-
-export interface BatchPayloadSubscription
-  extends Promise<AsyncIterator<BatchPayload>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Long>>;
-}
-
-export interface Media_ItemSubscriptionPayload {
-  mutation: MutationType;
-  node: Media_Item;
-  updatedFields: String[];
-  previousValues: Media_ItemPreviousValues;
-}
-
-export interface Media_ItemSubscriptionPayloadPromise
-  extends Promise<Media_ItemSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = Media_ItemPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = Media_ItemPreviousValuesPromise>() => T;
-}
-
-export interface Media_ItemSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<Media_ItemSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = Media_ItemSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = Media_ItemPreviousValuesSubscription>() => T;
-}
-
-export interface Media_ItemPreviousValues {
-  id: ID_Output;
-  banner_image_url?: String;
-  video_url?: String;
-}
-
-export interface Media_ItemPreviousValuesPromise
-  extends Promise<Media_ItemPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  banner_image_url: () => Promise<String>;
-  video_url: () => Promise<String>;
-}
-
-export interface Media_ItemPreviousValuesSubscription
-  extends Promise<AsyncIterator<Media_ItemPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  banner_image_url: () => Promise<AsyncIterator<String>>;
-  video_url: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ProjectSubscriptionPayload {
-  mutation: MutationType;
-  node: Project;
-  updatedFields: String[];
-  previousValues: ProjectPreviousValues;
-}
-
-export interface ProjectSubscriptionPayloadPromise
-  extends Promise<ProjectSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ProjectPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ProjectPreviousValuesPromise>() => T;
-}
-
-export interface ProjectSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ProjectSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ProjectSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ProjectPreviousValuesSubscription>() => T;
-}
-
-export interface ProjectPreviousValues {
-  id: ID_Output;
-  project_name: String;
-  project_year: Int;
-  film_project?: Boolean;
-  tech_project?: Boolean;
-}
-
-export interface ProjectPreviousValuesPromise
-  extends Promise<ProjectPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  project_name: () => Promise<String>;
-  project_year: () => Promise<Int>;
-  film_project: () => Promise<Boolean>;
-  tech_project: () => Promise<Boolean>;
-}
-
-export interface ProjectPreviousValuesSubscription
-  extends Promise<AsyncIterator<ProjectPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  project_name: () => Promise<AsyncIterator<String>>;
-  project_year: () => Promise<AsyncIterator<Int>>;
-  film_project: () => Promise<AsyncIterator<Boolean>>;
-  tech_project: () => Promise<AsyncIterator<Boolean>>;
-}
-
-export interface UserSubscriptionPayload {
-  mutation: MutationType;
-  node: User;
-  updatedFields: String[];
-  previousValues: UserPreviousValues;
-}
-
-export interface UserSubscriptionPayloadPromise
-  extends Promise<UserSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = UserPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = UserPreviousValuesPromise>() => T;
-}
-
-export interface UserSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<UserSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = UserSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = UserPreviousValuesSubscription>() => T;
-}
-
-export interface UserPreviousValues {
-  id: ID_Output;
-  user_name: String;
-  user_email?: String;
-  user_password?: String;
-  user_role?: User_Role;
-}
-
-export interface UserPreviousValuesPromise
-  extends Promise<UserPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  user_name: () => Promise<String>;
-  user_email: () => Promise<String>;
-  user_password: () => Promise<String>;
-  user_role: () => Promise<User_Role>;
-}
-
-export interface UserPreviousValuesSubscription
-  extends Promise<AsyncIterator<UserPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  user_name: () => Promise<AsyncIterator<String>>;
-  user_email: () => Promise<AsyncIterator<String>>;
-  user_password: () => Promise<AsyncIterator<String>>;
-  user_role: () => Promise<AsyncIterator<User_Role>>;
-}
+export type Long = string;
 
 /*
 The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
@@ -1256,21 +1263,14 @@ export type ID_Input = string | number;
 export type ID_Output = string;
 
 /*
-The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
-*/
-export type String = string;
-
-/*
 The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
 */
 export type Int = number;
 
 /*
-The `Boolean` scalar type represents `true` or `false`.
+The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
 */
-export type Boolean = boolean;
-
-export type Long = string;
+export type String = string;
 
 /**
  * Model Metadata

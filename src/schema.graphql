@@ -8,14 +8,28 @@ type Query {
 }
 
 type Mutation {
-  createUser(user_name: String!): User
+  createUser(
+    user_name: String!,
+    user_email: String!,
+    user_password: String!
+    ): User
+  signup(
+    user_name: String!,
+    user_email: String!,
+    user_password: String!
+  ): AuthPayload
+  login(
+    user_email: String!,
+    user_password: String!
+  ): AuthPayload
 }
 
-
+# This type is only client side
 type AuthPayload {
   token: String
   user: User
 }
+
 
 
 type User {
@@ -23,13 +37,6 @@ type User {
   user_name: String!
   user_email: String! 
   user_password: String!
-  user_role: User_Role
-}
-
-input UserCreateInput {
-  user_name: String!
-  user_email: String
-  user_password: String
   user_role: User_Role
 }
 

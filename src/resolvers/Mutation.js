@@ -1,66 +1,78 @@
-// Bring in the helper functions in utils
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { APP_SECRET, getUserId } = require('../utils')
 
 
 
-
+function createUser(root, args, context) {
+    return context.prisma.createUser({ 
+        user_name: args.user_name,
+        user_email: args.user_email,
+        user_password: args.user_password,
+     })
+}
 
 
 async function signup(parent, args, context, info) {
     // encrypting the User’s password using the bcryptjs library
-    const password = await bcrypt.hash(args.password, 10)
+    // the const name must match var name being passed to GQL
+    const user_password = await bcrypt.hash(args.user_password, 10)
     // use the prisma client instance to store the new User in the database
-    const user = await context.prisma.createUser({ ...args, password })
-
-    // generate a JSONwebToken which is signed with an APP_SECRET
+    
+    const user = await context.prisma.createUser({
+        ...args, user_password
+    })
+  
+    // generating a JWT which is signed with an APP_SECRET
     const token = jwt.sign({ userId: user.id }, APP_SECRET)
-
-    // return the token and user in an object adhering to the shape of
-    //  an AuthPayload object from your GraphQL schema
+    
+    // return token and user as per spec of AuthPayload type
     return {
-        token,
-        user,
+      token,
+      user,
     }
-}
-
-async function login(parent, args, context, info) {
-    // retrieve the existing User record by the email address
+  }
+  
+  async function login(parent, args, context, info) {
+     // retrieve the existing User record by the email address
     // that was sent along as an argument in the login mutation. 
     // If no User with that email address was found, 
     // return a corresponding error.
-    const user = await context.prisma.user({ email: args.user_email })
-
+    const user = await context.prisma.user({ user_email: args.user_email })
     if (!user) {
-        throw new Error('No such user found')
+      throw new Error('No such user found')
     }
-
+  
     // compare the provided password with the one that is stored 
     // in the database. If the two don’t match, return an error.
     const valid = await bcrypt.compare(args.user_password, user.user_password)
-
     if (!valid) {
-        throw new Error('Invalid password')
+      throw new Error('Invalid password')
     }
-
+  
     const token = jwt.sign({ userId: user.id }, APP_SECRET)
-
-    // 3
+  
+    // return token and user as per spec of AuthPayload type
     return {
-        token,
-        user,
+      token,
+      user,
     }
-}
+  }
   
 
 
 
 
 
-function createUser(root, args, context) {
-    return context.prisma.createUser({ name: args.user_name })
-}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -121,7 +133,7 @@ function createProject(root, args, context) {
 
 module.exports = {
     createUser,
+    createProject,
     signup,
     login,
-    createProject
 }
