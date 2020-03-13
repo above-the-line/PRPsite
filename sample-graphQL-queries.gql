@@ -1,0 +1,200 @@
+# FRONT PAGE SLIDER
+# field selector
+query AviGafferSliderPayload{
+    Film_Project(avi_roles: "cinematographer"){
+        project_banner: media_item(media_type: "image_official_poster"){
+            image_1080p_url
+        }
+        project_year
+        project_name
+    }
+}
+
+
+
+
+
+# Define the fragment that will be assigned in the variable slideDetails of type
+# When implemented above, character returned from field hero is of droid type
+fragment slideDetails on DeckOfProjectSlides {
+    project{
+        project_banner: media_item(media_type: "image_banner_1080p")
+        project_year
+        project_name
+    }
+}
+
+
+
+query QueryName ($avi_role: AviRoleType!, $avi_director: BOOLEAN)
+    project($avi_role: "cinematographer"){
+        project_name
+        project_year
+        @include(if: $avi_director){
+
+        }
+    }
+
+
+
+
+
+
+# FIRST define variable $project_name 
+# which MUST(!) contain a value of ProjectNameValue,
+# whose default value will be "Avi Project"
+# THEN specify the function
+mutation CreateNewFilmProject($project_name_variable: ProjectNameValue! = "Avi Project",
+                          $project_year_variable: ProjectYearValue! = 2020,
+                          $project_location_variable: ProjectLocationValue! = "Sydney",
+                           {
+  createProject(ProjectName: $project_name, ProjectYear: $project_year) {
+    stars
+    commentary
+  }
+}
+
+
+
+# 
+# 
+# DATA TYPES
+# 
+interface Project {
+    project_id: ID!
+    media_item: [Media_Item]               # Project can have many "Media_Item"s 
+    text_item: [Text_Item]
+    project_name: String!
+    project_year: Int!
+    project_location: String!
+    official_website: String
+    project_category: [Project_Category!]   # Enum
+    avi_roles: [Avi_Role!]                  # Enum
+}
+
+
+# @relation many:1 ==> Media_Item:Project
+type Media_Item {
+    media_item_id: ID!
+    project_name: Project!       # "Media_Item"s can only belong to ONE project
+    media_url: String
+    media_type: [Media_Type!]   # Enum
+    caption: String
+    image_4k_url: String
+    image_1080p_url: String
+    image_480p_thumbnail_url: String    
+    video_youTube_url: String
+    video_vimeo_url: String
+}
+
+enum Media_Type{
+    image_official_poster
+    image
+    thumbnail
+    video
+    project_website
+}
+
+# @relation many:1 ==> Text_Item:Project
+type Text_Item {
+    text_item_id: ID!
+    project_name: Project!   # "Text_Item"s can only belong to ONE project
+    text_title: String
+    text_author: String
+    text_blurb: String
+    blog_post_url: String
+}
+
+
+enum Project_Category{
+    short_film
+    feature_film
+    website
+    app
+    live_stream
+    commercial
+    branded_content
+    research
+}
+
+enum Avi_Role{
+    director
+    producer
+    writer
+    cinematographer
+    camera_operator
+    gaffer
+    lighting_technician
+    front_end_developer
+    back_end_developer
+    full_stack_developer
+}
+
+
+type Film_Project implements Project {
+    project_id: ID!
+    media_item: [Media_Item]               # Film_Project can have many "Media_Item"s 
+    text_item: [Text_Item]
+    project_name: String!
+    project_year: Int!
+    project_location: String!
+    official_website: String
+    project_category: [Project_Category!]   # Enum
+    avi_roles: [Avi_Role!]                  # Enum
+    # Class Specific Implementation Details
+    directed_by: String
+    produced_by: String
+    avi_director: Boolean
+}
+
+
+type Tech_Project implements Project {
+    project_id: ID!
+    media_item: [Media_Item]               # Tech_Project can have many "Media_Item"s 
+    text_item: [Text_Item]
+    project_name: String!
+    project_year: Int!
+    project_location: String!
+    official_website: String
+    project_category: [Project_Category!]   # Enum
+    avi_roles: [Avi_Role!]                  # Enum
+    # Class Specific Implementation Details
+    avi_tech_lead: Boolean
+    native_application: Boolean
+    tech_stack_items: [Tech_Stack_Item]     # Tech_Project can have many "Tech_Stack_Item"s
+}
+
+
+# @relation many:1 ==> Tech_Stack_Item:Tech_Project
+type Tech_Stack_Item{
+    tech_stack_item_id: ID!
+    tech_project: Tech_Project!              # "Tech_Stack_Item"s can only belong to ONE Tech_Project
+    tech_stack_item_media: Tech_Item_Media
+    tech_stack_item_name_1: String
+}
+
+
+# @relation 1:1 ==> Tech_Stack_Item:Tech_Project
+type Tech_Item_Media {
+    tech_item_media_id: ID!
+    tech_stack_item: Tech_Stack_Item!  # "Tech_Item_Media" can only belong to ONE Tech_Project
+    image_tech_item_1080p: String
+    image_tech_item_480p: String
+}
+
+# 
+# 
+# 
+# USERS
+# 
+type User {
+    user_name: String!
+    user_email: String!
+    user_password: String!
+    user_access_links: [Access_Links!]!
+    user_role: [User_Role!]!
+}
+
+
+
+}

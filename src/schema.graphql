@@ -56,6 +56,7 @@ enum User_Role {
 
 type Query {
   projects: [Project]
+  filterProjectsByRole(where: Avi_RolesCreateInput): [Project]  #where is taken from Query type in Prisma Client
 }
 
 

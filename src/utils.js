@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 
-// used to sign the JWTs being issuing to users
+// used to sign the JWTs being issued to users
 const APP_SECRET = 'asd'
 // console.log(process.env.UTILS_APP_SECRET)
 
