@@ -18,16 +18,16 @@ function projects(root, args, context) {
 //       "avi_gaffer": false
 //     }
 //   } 
+// args returns data in the format { where: {"avi_gaffer": true} }
+// hence, args.where gets me the properties of interest
+// then I submit the query as per the spec -- projects(where:ProjectWhereInput)
 async function filterProjectsByRole(parent, args, context, info){
-    const where = args.filter ? {
-        "avi_roles_on_project": {...args.filter}
+    const ProjectWhereInput = args ? {
+        "avi_roles_on_project": {...args.where}
     } : {} 
-
-    const projects = await context.prisma.projects({
-        where
-    })
-
-    return projects
+    
+    const filteredProjects = await context.prisma.projects({"where": ProjectWhereInput})
+    return filteredProjects    
 }
 
 

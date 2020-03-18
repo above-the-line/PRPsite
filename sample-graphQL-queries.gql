@@ -1,3 +1,20 @@
+QUERY
+query ArbitraryNameForfilterProjectsByRole($rolesOfInterest: Avi_RolesCreateInput){
+  filterProjectsByRole(where: $rolesOfInterest){
+    project_name
+  }
+}
+
+VAR
+{
+  "rolesOfInterest": {
+    "avi_gaffer": false
+  }
+}
+
+
+
+
 # FRONT PAGE SLIDER
 # field selector
 query AviGafferSliderPayload{
