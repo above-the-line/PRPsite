@@ -13,3 +13,13 @@ To Get Started:
 5. (in ./) docker-compose --file stack.yml up
 6. (in ./prisma) prisma deploy
 7. (in ./src) node index.js
+
+---
+
+## | BACKEND SERVICE PORTS |
+
+| prisma GQL Playground | 4466 |
+| mongo | 27017 |
+| express | 8081 |
+
+---
