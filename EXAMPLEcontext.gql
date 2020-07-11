@@ -1,0 +1,795 @@
+Client: {
+  _currentInstructions: {},
+  _models: [
+    { name: 'User', embedded: false },
+    { name: 'User_Role', embedded: false },
+    { name: 'Project', embedded: false },
+    { name: 'Avi_Roles', embedded: true },
+    { name: 'Media_Item', embedded: false },
+    { name: 'Project_Category', embedded: true }
+  ],
+  _promises: {},
+  processInstructionsOnce: [Function],
+  processInstructions: [Function],
+  then: [Function],
+  catch: [Function],
+  _debug: undefined,
+  _schema: GraphQLSchema {
+    __validationErrors: undefined,
+    extensions: undefined,
+    astNode: undefined,
+    extensionASTNodes: undefined,
+    __allowedLegacyNames: [],
+    _queryType: Query,
+    _mutationType: Mutation,
+    _subscriptionType: Subscription,
+    _directives: [ @skip, @include, @deprecated ],
+    _typeMap: [Object: null prototype] {
+      Query: Query,
+      Media_ItemWhereUniqueInput: Media_ItemWhereUniqueInput,
+      ID: ID,
+      Media_Item: Media_Item,
+      String: String,
+      Media_ItemWhereInput: Media_ItemWhereInput,
+      Media_ItemOrderByInput: Media_ItemOrderByInput,
+      Int: Int,
+      Media_ItemConnection: Media_ItemConnection,
+      PageInfo: PageInfo,
+      Boolean: Boolean,
+      Media_ItemEdge: Media_ItemEdge,
+      AggregateMedia_Item: AggregateMedia_Item,
+      ProjectWhereUniqueInput: ProjectWhereUniqueInput,
+      Project: Project,
+      Avi_Roles: Avi_Roles,
+      Project_Category: Project_Category,
+      ProjectWhereInput: ProjectWhereInput,
+      Avi_RolesWhereInput: Avi_RolesWhereInput,
+      Project_CategoryWhereInput: Project_CategoryWhereInput,
+      ProjectOrderByInput: ProjectOrderByInput,
+      ProjectConnection: ProjectConnection,
+      ProjectEdge: ProjectEdge,
+      AggregateProject: AggregateProject,
+      UserWhereUniqueInput: UserWhereUniqueInput,
+      User: User,
+      User_Role: User_Role,
+      UserWhereInput: UserWhereInput,
+      UserOrderByInput: UserOrderByInput,
+      UserConnection: UserConnection,
+      UserEdge: UserEdge,
+      AggregateUser: AggregateUser,
+      Node: Node,
+      Mutation: Mutation,
+      Media_ItemCreateInput: Media_ItemCreateInput,
+      Media_ItemUpdateInput: Media_ItemUpdateInput,
+      Media_ItemUpdateManyMutationInput: Media_ItemUpdateManyMutationInput,
+      BatchPayload: BatchPayload,
+      Long: Long,
+      ProjectCreateInput: ProjectCreateInput,
+      Avi_RolesCreateOneInput: Avi_RolesCreateOneInput,
+      Avi_RolesCreateInput: Avi_RolesCreateInput,
+      Media_ItemCreateManyInput: Media_ItemCreateManyInput,
+      Project_CategoryCreateOneInput: Project_CategoryCreateOneInput,
+      Project_CategoryCreateInput: Project_CategoryCreateInput,
+      ProjectUpdateInput: ProjectUpdateInput,
+      Avi_RolesUpdateOneRequiredInput: Avi_RolesUpdateOneRequiredInput,
+      Avi_RolesUpdateDataInput: Avi_RolesUpdateDataInput,
+      Avi_RolesUpsertNestedInput: Avi_RolesUpsertNestedInput,
+      Media_ItemUpdateManyInput: Media_ItemUpdateManyInput,
+      Media_ItemUpdateWithWhereUniqueNestedInput: Media_ItemUpdateWithWhereUniqueNestedInput,
+      Media_ItemUpdateDataInput: Media_ItemUpdateDataInput,
+      Media_ItemUpsertWithWhereUniqueNestedInput: Media_ItemUpsertWithWhereUniqueNestedInput,
+      Media_ItemScalarWhereInput: Media_ItemScalarWhereInput,
+      Media_ItemUpdateManyWithWhereNestedInput: Media_ItemUpdateManyWithWhereNestedInput,
+      Media_ItemUpdateManyDataInput: Media_ItemUpdateManyDataInput,
+      Project_CategoryUpdateOneInput: Project_CategoryUpdateOneInput,
+      Project_CategoryUpdateDataInput: Project_CategoryUpdateDataInput,
+      Project_CategoryUpsertNestedInput: Project_CategoryUpsertNestedInput,
+      ProjectUpdateManyMutationInput: ProjectUpdateManyMutationInput,
+      UserCreateInput: UserCreateInput,
+      UserUpdateInput: UserUpdateInput,
+      UserUpdateManyMutationInput: UserUpdateManyMutationInput,
+      Subscription: Subscription,
+      Media_ItemSubscriptionWhereInput: Media_ItemSubscriptionWhereInput,
+      MutationType: MutationType,
+      Media_ItemSubscriptionPayload: Media_ItemSubscriptionPayload,
+      Media_ItemPreviousValues: Media_ItemPreviousValues,
+      ProjectSubscriptionWhereInput: ProjectSubscriptionWhereInput,
+      ProjectSubscriptionPayload: ProjectSubscriptionPayload,
+      ProjectPreviousValues: ProjectPreviousValues,
+      UserSubscriptionWhereInput: UserSubscriptionWhereInput,
+      UserSubscriptionPayload: UserSubscriptionPayload,
+      UserPreviousValues: UserPreviousValues,
+      __Schema: __Schema,
+      __Type: __Type,
+      __TypeKind: __TypeKind,
+      __Field: __Field,
+      __InputValue: __InputValue,
+      __EnumValue: __EnumValue,
+      __Directive: __Directive,
+      __DirectiveLocation: __DirectiveLocation
+    },
+    _possibleTypeMap: [Object: null prototype] {},
+    _implementations: [Object: null prototype] {}
+  },
+  _endpoint: 'http://localhost:4466',
+  _secret: undefined,
+  _types: {
+    Query: {
+      then: [Function],
+      catch: [Function],
+      mediaItem: [Function: value],
+      mediaItems: [Function: value],
+      mediaItemsConnection: [Function: value],
+      project: [Function: value],
+      projects: [Function: value],
+      projectsConnection: [Function: value],
+      user: [Function: value],
+      users: [Function: value],
+      usersConnection: [Function: value],
+      node: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemWhereUniqueInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    ID: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_Item: {
+      then: [Function],
+      catch: [Function],
+      id: [Function: value],
+      banner_image_url: [Function: value],
+      video_url: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    String: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemWhereInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemOrderByInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Int: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemConnection: {
+      then: [Function],
+      catch: [Function],
+      pageInfo: [Function: value],
+      edges: [Function: value],
+      aggregate: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    PageInfo: {
+      then: [Function],
+      catch: [Function],
+      hasNextPage: [Function: value],
+      hasPreviousPage: [Function: value],
+      startCursor: [Function: value],
+      endCursor: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Boolean: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemEdge: {
+      then: [Function],
+      catch: [Function],
+      node: [Function: value],
+      cursor: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    AggregateMedia_Item: {
+      then: [Function],
+      catch: [Function],
+      count: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    ProjectWhereUniqueInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Project: {
+      then: [Function],
+      catch: [Function],
+      id: [Function: value],
+      project_name: [Function: value],
+      project_year: [Function: value],
+      film_project: [Function: value],
+      tech_project: [Function: value],
+      avi_roles_on_project: [Function: value],
+      project_media: [Function: value],
+      project_category: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Avi_Roles: {
+      then: [Function],
+      catch: [Function],
+      avi_director: [Function: value],
+      avi_gaffer: [Function: value],
+      avi_cinematographer: [Function: value],
+      avi_writer: [Function: value],
+      avi_camera_operator: [Function: value],
+      avi_lighting_technician: [Function: value],
+      avi_front_end_dev: [Function: value],
+      avi_back_end_dev: [Function: value],
+      avi_full_stack_dev: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Project_Category: {
+      then: [Function],
+      catch: [Function],
+      short_film: [Function: value],
+      feature_film: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    ProjectWhereInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Avi_RolesWhereInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Project_CategoryWhereInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    ProjectOrderByInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    ProjectConnection: {
+      then: [Function],
+      catch: [Function],
+      pageInfo: [Function: value],
+      edges: [Function: value],
+      aggregate: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    ProjectEdge: {
+      then: [Function],
+      catch: [Function],
+      node: [Function: value],
+      cursor: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    AggregateProject: {
+      then: [Function],
+      catch: [Function],
+      count: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    UserWhereUniqueInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    User: {
+      then: [Function],
+      catch: [Function],
+      id: [Function: value],
+      user_name: [Function: value],
+      user_email: [Function: value],
+      user_password: [Function: value],
+      user_role: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    User_Role: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    UserWhereInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    UserOrderByInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    UserConnection: {
+      then: [Function],
+      catch: [Function],
+      pageInfo: [Function: value],
+      edges: [Function: value],
+      aggregate: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    UserEdge: {
+      then: [Function],
+      catch: [Function],
+      node: [Function: value],
+      cursor: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    AggregateUser: {
+      then: [Function],
+      catch: [Function],
+      count: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Node: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Mutation: {
+      then: [Function],
+      catch: [Function],
+      createMedia_Item: [Function: value],
+      updateMedia_Item: [Function: value],
+      updateManyMedia_Items: [Function: value],
+      upsertMedia_Item: [Function: value],
+      deleteMedia_Item: [Function: value],
+      deleteManyMedia_Items: [Function: value],
+      createProject: [Function: value],
+      updateProject: [Function: value],
+      updateManyProjects: [Function: value],
+      upsertProject: [Function: value],
+      deleteProject: [Function: value],
+      deleteManyProjects: [Function: value],
+      createUser: [Function: value],
+      updateUser: [Function: value],
+      updateManyUsers: [Function: value],
+      upsertUser: [Function: value],
+      deleteUser: [Function: value],
+      deleteManyUsers: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemCreateInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemUpdateInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemUpdateManyMutationInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    BatchPayload: {
+      then: [Function],
+      catch: [Function],
+      count: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Long: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    ProjectCreateInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Avi_RolesCreateOneInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Avi_RolesCreateInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemCreateManyInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Project_CategoryCreateOneInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Project_CategoryCreateInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    ProjectUpdateInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Avi_RolesUpdateOneRequiredInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Avi_RolesUpdateDataInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Avi_RolesUpsertNestedInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemUpdateManyInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemUpdateWithWhereUniqueNestedInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemUpdateDataInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemUpsertWithWhereUniqueNestedInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemScalarWhereInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemUpdateManyWithWhereNestedInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemUpdateManyDataInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Project_CategoryUpdateOneInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Project_CategoryUpdateDataInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Project_CategoryUpsertNestedInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    ProjectUpdateManyMutationInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    UserCreateInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    UserUpdateInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    UserUpdateManyMutationInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Subscription: {
+      then: [Function],
+      catch: [Function],
+      mediaItem: [Function: value],
+      project: [Function: value],
+      user: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemSubscriptionWhereInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    MutationType: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemSubscriptionPayload: {
+      then: [Function],
+      catch: [Function],
+      mutation: [Function: value],
+      node: [Function: value],
+      updatedFields: [Function: value],
+      previousValues: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    Media_ItemPreviousValues: {
+      then: [Function],
+      catch: [Function],
+      id: [Function: value],
+      banner_image_url: [Function: value],
+      video_url: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    ProjectSubscriptionWhereInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    ProjectSubscriptionPayload: {
+      then: [Function],
+      catch: [Function],
+      mutation: [Function: value],
+      node: [Function: value],
+      updatedFields: [Function: value],
+      previousValues: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    ProjectPreviousValues: {
+      then: [Function],
+      catch: [Function],
+      id: [Function: value],
+      project_name: [Function: value],
+      project_year: [Function: value],
+      film_project: [Function: value],
+      tech_project: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    UserSubscriptionWhereInput: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    UserSubscriptionPayload: {
+      then: [Function],
+      catch: [Function],
+      mutation: [Function: value],
+      node: [Function: value],
+      updatedFields: [Function: value],
+      previousValues: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    UserPreviousValues: {
+      then: [Function],
+      catch: [Function],
+      id: [Function: value],
+      user_name: [Function: value],
+      user_email: [Function: value],
+      user_password: [Function: value],
+      user_role: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    __Schema: {
+      then: [Function],
+      catch: [Function],
+      types: [Function: value],
+      queryType: [Function: value],
+      mutationType: [Function: value],
+      subscriptionType: [Function: value],
+      directives: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    __Type: {
+      then: [Function],
+      catch: [Function],
+      kind: [Function: value],
+      name: [Function: value],
+      description: [Function: value],
+      fields: [Function: value],
+      interfaces: [Function: value],
+      possibleTypes: [Function: value],
+      enumValues: [Function: value],
+      inputFields: [Function: value],
+      ofType: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    __TypeKind: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    __Field: {
+      then: [Function],
+      catch: [Function],
+      name: [Function: value],
+      description: [Function: value],
+      args: [Function: value],
+      type: [Function: value],
+      isDeprecated: [Function: value],
+      deprecationReason: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    __InputValue: {
+      then: [Function],
+      catch: [Function],
+      name: [Function: value],
+      description: [Function: value],
+      type: [Function: value],
+      defaultValue: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    __EnumValue: {
+      then: [Function],
+      catch: [Function],
+      name: [Function: value],
+      description: [Function: value],
+      isDeprecated: [Function: value],
+      deprecationReason: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    __Directive: {
+      then: [Function],
+      catch: [Function],
+      name: [Function: value],
+      description: [Function: value],
+      locations: [Function: value],
+      args: [Function: value],
+      '$fragment': [Function: value],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    },
+    __DirectiveLocation: {
+      then: [Function],
+      catch: [Function],
+      [Symbol(Symbol.toStringTag)]: 'Promise'
+    }
+  },
+  mediaItem: [Function: value],
+  mediaItems: [Function: value],
+  mediaItemsConnection: [Function: value],
+  project: [Function: value],
+  projects: [Function: value],
+  projectsConnection: [Function: value],
+  user: [Function: value],
+  users: [Function: value],
+  usersConnection: [Function: value],
+  node: [Function: value],
+  '$fragment': [Function: value],
+  createMedia_Item: [Function: value],
+  updateMedia_Item: [Function: value],
+  updateManyMedia_Items: [Function: value],
+  upsertMedia_Item: [Function: value],
+  deleteMedia_Item: [Function: value],
+  deleteManyMedia_Items: [Function: value],
+  createProject: [Function: value],
+  updateProject: [Function: value],
+  updateManyProjects: [Function: value],
+  upsertProject: [Function: value],
+  deleteProject: [Function: value],
+  deleteManyProjects: [Function: value],
+  createUser: [Function: value],
+  updateUser: [Function: value],
+  updateManyUsers: [Function: value],
+  upsertUser: [Function: value],
+  deleteUser: [Function: value],
+  deleteManyUsers: [Function: value],
+  '$subscribe': {
+    then: [Function],
+    catch: [Function],
+    mediaItem: [Function: value],
+    project: [Function: value],
+    user: [Function: value],
+    '$fragment': [Function: value],
+    [Symbol(Symbol.toStringTag)]: 'Promise'
+  },
+  '$graphql': [Function],
+  '$exists': { media_Item: [Function], project: [Function], user: [Function] },
+  _token: undefined,
+  _client: BatchedGraphQLClient {
+    load: [Function],
+    uri: 'http://localhost:4466',
+    options: { headers: {} },
+    dataloader: DataLoader {
+      _batchLoadFn: [Function],
+      _options: [Object],
+      _promiseCache: Map {},
+      _queue: []
+    }
+  },
+  _subscriptionClient: SubscriptionClient {
+    wsImpl: [Function: WebSocket] {
+      CONNECTING: 0,
+      OPEN: 1,
+      CLOSING: 2,
+      CLOSED: 3,
+      Server: [Function: WebSocketServer],
+      Receiver: [Function: Receiver],
+      Sender: [Function: Sender]
+    },
+    wsProtocols: 'graphql-ws',
+    connectionCallback: undefined,
+    url: 'ws://localhost:4466',
+    operations: {},
+    nextOperationId: 0,
+    wsTimeout: 30000,
+    unsentMessagesQueue: [],
+    reconnect: true,
+    reconnecting: false,
+    reconnectionAttempts: Infinity,
+    lazy: true,
+    inactivityTimeout: 60000,
+    closedByUser: false,
+    backoff: Backoff {
+      ms: 100,
+      max: 10000,
+      factor: 2,
+      jitter: 0.5,
+      attempts: 0
+    },
+    eventEmitter: EventEmitter {
+      _events: Events <Complex prototype> {},
+      _eventsCount: 0
+    },
+    middlewares: [],
+    client: null,
+    maxConnectTimeGenerator: Backoff {
+      ms: 1000,
+      max: 30000,
+      factor: 1.2,
+      jitter: 0,
+      attempts: 0
+    },
+    connectionParams: [Function]
+  },
+  [Symbol(Symbol.toStringTag)]: 'Promise'
+}

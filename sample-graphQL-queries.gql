@@ -1,4 +1,49 @@
 QUERY
+query ProjectMediaQuery($idOfMediaItem: Media_ItemWhereInput){
+  mediaItems(where: $idOfMediaItem){
+    banner_image_url
+  }
+}
+
+
+VAR
+{
+  "idOfMediaItem": {
+		"id": "5e75badea7b11b0007eda36b"  
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+WORKS
+QUERY
+{
+  media_Items{
+    id
+    banner_image_url
+  }
+}
+
+
+
+
+
+
+
+
+
+QUERY
 query ArbitraryNameForfilterProjectsByRole($rolesOfInterest: Avi_RolesCreateInput){
   filterProjectsByRole(where: $rolesOfInterest){
     project_name
